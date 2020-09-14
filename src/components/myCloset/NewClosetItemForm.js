@@ -3,7 +3,7 @@ import {MyClosetContext} from "./MyClosetProvider"
 import{CategoriesContext} from "./CategoriesProvider"
 
 export const NewClosetItemForm = (props) => {
-    const {addClosetItems, closetItems, updateClosetItems, getClosetItems} = useContext(MyClosetContext)
+    const {addClosetItems, closetItems, updateClosetItem, getClosetItems} = useContext(MyClosetContext)
     const {categories, getCategories} = useContext(CategoriesContext)
 
     const [closetItem, setClosetItem] = useState({})
@@ -54,7 +54,7 @@ export const NewClosetItemForm = (props) => {
             window.alert("Please select a category")
         } else {
             if (editMode) {
-                updateClosetItems({
+                updateClosetItem({
                     id: closetItem.id,
                     type: closetItem.type,
                     color: closetItem.color,

@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react"
 import { MyClosetContext } from "./MyClosetProvider"
 
 export const ClothingItem = (props) => {
-    const {deleteClosetItem, getClosetItemCategory} = useContext(MyClosetContext)
-    const {closetItem, setClosetItem} = useState({category:{}})
+    const {deleteClosetItem, getClosetItemById} = useContext(MyClosetContext)
+    // const {closetItem, setClosetItem} = useState({category:{}})
 
     // useEffect(()=> {
     //     const closetItemId = parseInt(props.match.params.closetItemId)
-    //     getClosetItemCategory(closetItemId)
+    //     getClosetItemById(closetItemId)
     //         .then(setClosetItem)
     // }, [])
 
@@ -24,15 +24,15 @@ export const ClothingItem = (props) => {
                 () => {
                     deleteClosetItem(props.closetItem.id)
                         .then(() => {
-                            props.history.push(`/myCloset/`)
+                            props.history.push(`/myCloset`)
                         })
                 }
             }>
                 Delete Item
             </button>
-            {/* <button onClick={() => {
+            <button onClick={() => {
                 props.history.push(`/myCloset/edit/${props.closetItem.id}`)
-            }}>Edit Item</button> */}
+            }}>Edit Item</button>
     </section>
 )
 }

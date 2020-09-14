@@ -21,28 +21,28 @@ export const ApplicationViews = (props) => {
             {/* Renders my closet list. Has all different functions depending on the category due to the different routes.*/}
             <MyClosetProvider>
                 <CategoriesProvider>
-                    <Route exact path="/myCloset/tops">
-                        <MyTopsList />
+                    <Route exact path="/myCloset/tops" render={props => <MyTopsList {...props} />}>
+                        
                     </Route>
 
-                    <Route exact path="/myCloset/bottoms">
-                        <MyBottomsList />
+                    <Route exact path="/myCloset/bottoms" render={props => <MyBottomsList {...props} />}>
+                        
                     </Route>
 
-                    <Route exact path="/myCloset/onePieces">
-                        <MyOnePiecesList />
+                    <Route exact path="/myCloset/onePieces" render={props => <MyOnePiecesList {...props} />}>
+                        
                     </Route>
 
-                    <Route exact path="/myCloset/jackets">
-                        <MyJacketsList />
+                    <Route exact path="/myCloset/jackets" render={props => <MyJacketsList {...props} />}>
+                        
                     </Route>
 
-                    <Route exact path="/myCloset/shoes">
-                        <MyShoesList />
+                    <Route exact path="/myCloset/shoes" render={props => <MyShoesList {...props} />}>
+        
                     </Route>
 
-                    <Route exact path="/myCloset/accessorys">
-                        <MyAccessoriesList />
+                    <Route exact path="/myCloset/accessorys" render={props => <MyAccessoriesList {...props} />}>
+        
                     </Route>
 
                     <Route exact path="/myCloset/create" render={
