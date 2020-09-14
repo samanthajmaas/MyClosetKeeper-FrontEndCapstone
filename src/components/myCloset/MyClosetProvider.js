@@ -11,6 +11,12 @@ export const MyClosetProvider = (props) => {
             .then(setClosetItems)
     }
 
+    const getClosetItemCategory = (id) => {
+        return fetch(`http://localhost:8088/closetItems/${id}?_expand=category`)
+            .then(res=> res.json())
+            .then(setClosetItems)
+        }
+
     const addClosetItems = (closetItem) => {
         return fetch(`http://localhost:8088/closetItems`, {
             method: "POST",
@@ -42,7 +48,7 @@ export const MyClosetProvider = (props) => {
 
     return (
         <MyClosetContext.Provider value= {{
-            closetItems, addClosetItems, getClosetItems, deleteClosetItem, updateClosetItem
+            closetItems, addClosetItems, getClosetItems, deleteClosetItem, updateClosetItem, getClosetItemCategory
         }}>
             {props.children}
         </MyClosetContext.Provider>

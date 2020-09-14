@@ -16,7 +16,7 @@ export const MyTopsList = ({history}) => {
         <div className="closetItems">
             {
                 closetItems.map(closetItem => {
-                    if (closetItem.categorieId === 1) {
+                    if (closetItem.categoryId === 1) {
                     return <ClothingItem key={closetItem.id} closetItem={closetItem} />
                 }})
             }
@@ -39,7 +39,7 @@ export const MyBottomsList = ({history}) => {
         <div className="closetItems">
             {
                 closetItems.map(closetItem => {
-                    if (closetItem.categorieId === 2) {
+                    if (closetItem.categoryId === 2) {
                     return <ClothingItem key={closetItem.id} closetItem={closetItem} />
                 }})
             }
@@ -62,7 +62,7 @@ export const MyOnePiecesList = ({history}) => {
         <div className="closetItems">
             {
                 closetItems.map(closetItem => {
-                    if (closetItem.categorieId === 3) {
+                    if (closetItem.categoryId === 3) {
                     return <ClothingItem key={closetItem.id} closetItem={closetItem} />
                 }})
             }
@@ -85,7 +85,7 @@ export const MyJacketsList = ({history}) => {
         <div className="closetItems">
             {
                 closetItems.map(closetItem => {
-                    if (closetItem.categorieId === 4) {
+                    if (closetItem.categoryId === 4) {
                     return <ClothingItem key={closetItem.id} closetItem={closetItem} />
                 }})
             }
@@ -108,7 +108,7 @@ export const MyShoesList = ({history}) => {
         <div className="closetItems">
             {
                 closetItems.map(closetItem => {
-                    if (closetItem.categorieId === 5) {
+                    if (closetItem.categoryId === 5) {
                     return <ClothingItem key={closetItem.id} closetItem={closetItem} />
                 }})
             }
@@ -131,7 +131,7 @@ export const MyAccessoriesList = ({history}) => {
         <div className="closetItems">
             {
                 closetItems.map(closetItem => {
-                    if (closetItem.categorieId === 6) {
+                    if (closetItem.categoryId === 6) {
                     return <ClothingItem key={closetItem.id} closetItem={closetItem} />
                 }})
             }

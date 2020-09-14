@@ -1,10 +1,13 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-export const MyClosetMenuButtons = (props) => {
+export const MyClosetMenuButtons = ({history}) => {
     return (
         <>
         <h2>My Closet</h2>
+        <button onClick={() => history.push("/myCloset/create")}>
+                Add new Clothing Item
+        </button>
         <ul className="myClosetMenu">
             <li className="myClosetMenu__item">
                 <Link className="myClosetMenu__link" to="/myCloset/tops">Tops</Link>
