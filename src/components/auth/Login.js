@@ -1,9 +1,6 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 
-
-
-
 export const Login = props => {
     const email = useRef()
     const password = useRef()
