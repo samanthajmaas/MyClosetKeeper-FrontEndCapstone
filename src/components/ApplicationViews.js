@@ -41,11 +41,15 @@ export const ApplicationViews = (props) => {
                         <MyShoesList />
                     </Route>
 
-                    <Route exact path="/myCloset/accessories">
+                    <Route exact path="/myCloset/accessorys">
                         <MyAccessoriesList />
                     </Route>
 
                     <Route exact path="/myCloset/create" render={
+                        props => <NewClosetItemForm {...props} />
+                    } />
+
+                    <Route path="/myCloset/edit/:closetItemId(\d+)" render={
                         props => <NewClosetItemForm {...props} />
                     } />
                 </CategoriesProvider>

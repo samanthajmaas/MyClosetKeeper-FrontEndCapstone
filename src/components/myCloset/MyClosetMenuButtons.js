@@ -25,7 +25,7 @@ export const MyClosetMenuButtons = ({history}) => {
                 <Link className="myClosetMenu__link" to="/myCloset/shoes">Shoes</Link>
             </li>
             <li className="myClosetMenu__item">
-                <Link className="myClosetMenu__link" to="/myCloset/accessories">Accessories</Link>
+                <Link className="myClosetMenu__link" to="/myCloset/accessorys">Accessories</Link>
             </li>
         </ul>
         </>

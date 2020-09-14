@@ -2,7 +2,7 @@ import React, {useState, useContext, useEffect} from "react"
 import {MyClosetContext} from "./MyClosetProvider"
 import {ClothingItem} from "./ClosetItem"
 
-export const MyTopsList = ({history}) => {
+export const MyTopsList = (props) => {
     const {closetItems, getClosetItems} = useContext(MyClosetContext)
     
     useEffect(()=> {
@@ -17,7 +17,7 @@ export const MyTopsList = ({history}) => {
             {
                 closetItems.map(closetItem => {
                     if (closetItem.categoryId === 1) {
-                    return <ClothingItem key={closetItem.id} closetItem={closetItem} />
+                    return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                 }})
             }
         </div>
@@ -25,7 +25,7 @@ export const MyTopsList = ({history}) => {
     )
 }
 
-export const MyBottomsList = ({history}) => {
+export const MyBottomsList = (props) => {
     const {closetItems, getClosetItems} = useContext(MyClosetContext)
     
     useEffect(()=> {
@@ -40,7 +40,7 @@ export const MyBottomsList = ({history}) => {
             {
                 closetItems.map(closetItem => {
                     if (closetItem.categoryId === 2) {
-                    return <ClothingItem key={closetItem.id} closetItem={closetItem} />
+                    return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props}  />
                 }})
             }
         </div>
@@ -48,7 +48,7 @@ export const MyBottomsList = ({history}) => {
     )
 }
 
-export const MyOnePiecesList = ({history}) => {
+export const MyOnePiecesList = (props) => {
     const {closetItems, getClosetItems} = useContext(MyClosetContext)
     
     useEffect(()=> {
@@ -63,7 +63,7 @@ export const MyOnePiecesList = ({history}) => {
             {
                 closetItems.map(closetItem => {
                     if (closetItem.categoryId === 3) {
-                    return <ClothingItem key={closetItem.id} closetItem={closetItem} />
+                    return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props}  />
                 }})
             }
         </div>
@@ -71,7 +71,7 @@ export const MyOnePiecesList = ({history}) => {
     )
 }
 
-export const MyJacketsList = ({history}) => {
+export const MyJacketsList = (props) => {
     const {closetItems, getClosetItems} = useContext(MyClosetContext)
     
     useEffect(()=> {
@@ -86,7 +86,7 @@ export const MyJacketsList = ({history}) => {
             {
                 closetItems.map(closetItem => {
                     if (closetItem.categoryId === 4) {
-                    return <ClothingItem key={closetItem.id} closetItem={closetItem} />
+                    return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                 }})
             }
         </div>
@@ -94,7 +94,7 @@ export const MyJacketsList = ({history}) => {
     )
 }
 
-export const MyShoesList = ({history}) => {
+export const MyShoesList = (props) => {
     const {closetItems, getClosetItems} = useContext(MyClosetContext)
     
     useEffect(()=> {
@@ -109,7 +109,7 @@ export const MyShoesList = ({history}) => {
             {
                 closetItems.map(closetItem => {
                     if (closetItem.categoryId === 5) {
-                    return <ClothingItem key={closetItem.id} closetItem={closetItem} />
+                    return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                 }})
             }
         </div>
@@ -117,7 +117,7 @@ export const MyShoesList = ({history}) => {
     )
 }
 
-export const MyAccessoriesList = ({history}) => {
+export const MyAccessoriesList = (props) => {
     const {closetItems, getClosetItems} = useContext(MyClosetContext)
     
     useEffect(()=> {
@@ -132,7 +132,7 @@ export const MyAccessoriesList = ({history}) => {
             {
                 closetItems.map(closetItem => {
                     if (closetItem.categoryId === 6) {
-                    return <ClothingItem key={closetItem.id} closetItem={closetItem} />
+                    return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                 }})
             }
         </div>
