@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
-// import "./Login.css"
+import "./Login.css"
 
 export const Login = props => {
     const email = useRef()
@@ -32,6 +32,8 @@ export const Login = props => {
 
     return (
         <main className="container--login">
+            <h1 className="login--header">My Closet Keeper</h1>
+            <h2 className="login--signIn">Login</h2>
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
@@ -42,8 +44,7 @@ export const Login = props => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1 className="login--header">My Closet Keeper</h1>
-                    <h2 className="login--signIn">Please sign in</h2>
+                    
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"
