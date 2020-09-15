@@ -11,22 +11,11 @@ export const NewClosetItemForm = (props) => {
     const editMode = props.match.params.hasOwnProperty("closetItemId")
 
     const handleControlledInputChange = (event) => {
-        /*
-            When changing a state object or array, always create a new one
-            and change state instead of modifying current one
-        */
         const newClosetItem = Object.assign({}, closetItem)
         newClosetItem[event.target.name] = event.target.value
         setClosetItem(newClosetItem)
     }
 
-    /*
-        If there is a URL parameter, then the user has chosen to
-        edit an animal.
-            1. Get the value of the URL parameter.
-            2. Use that `id` to find the animal.
-            3. Update component state variable.
-    */
     const getClosetItemInEditMode = () => {
         if (editMode) {
             const closetItemId = parseInt(props.match.params.closetItemId)
@@ -35,13 +24,11 @@ export const NewClosetItemForm = (props) => {
         }
     }
 
-    // Get animals from API when component initializes
     useEffect(() => {
         getClosetItems()
         getCategories()
     }, [])
 
-    // Once provider state is updated, determine the animal (if edit)
     useEffect(() => {
         getClosetItemInEditMode()
     }, [closetItems])

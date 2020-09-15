@@ -22,12 +22,12 @@ export const ClothingItemsOutfitsProvider = (props)=> {
             .then(getClothingItemsOutfits)
     }
 
-    const deleteClothingItemsOutfits = (clothingItemOutfitId) => {
-        return fetch(`http://localhost:8088/clothingItemsOutfits/${clothingItemOutfitId}`, {
-            method: "DELETE"
-        })
-        .then(getClothingItemsOutfits)
-    }
+    // const deleteClothingItemsOutfits = (clothingItemOutfitId) => {
+    //     return fetch(`http://localhost:8088/clothingItemsOutfits/${clothingItemOutfitId}`, {
+    //         method: "DELETE"
+    //     })
+    //     .then(getClothingItemsOutfits)
+    // }
 
     const updateClothingItemsOutfits = clothingItemOutfit => {
         return fetch(`http://localhost:8088/clothingItemsOutfits/${clothingItemOutfit.id}`, {
@@ -42,7 +42,7 @@ export const ClothingItemsOutfitsProvider = (props)=> {
 
     return (
         <ClothingItemsOutfitsContext.Provider value= {{
-            clothingItemOutfits, getClothingItemsOutfits, addClothingItemsOutfits, deleteClothingItemsOutfits, updateClothingItemsOutfits
+            clothingItemOutfits, getClothingItemsOutfits, addClothingItemsOutfits, updateClothingItemsOutfits
         }}>
             {props.children}
         </ClothingItemsOutfitsContext.Provider>
