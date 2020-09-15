@@ -6,7 +6,7 @@ export const MyClosetMenuButtons = ({history}) => {
         <>
         <h2>My Closet</h2>
         <button onClick={() => history.push("/myCloset/create")}>
-                Add new Clothing Item
+                +Item
         </button>
         <ul className="myClosetMenu">
             <li className="myClosetMenu__item">

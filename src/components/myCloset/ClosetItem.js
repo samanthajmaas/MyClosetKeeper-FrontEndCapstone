@@ -1,16 +1,9 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
 import { MyClosetContext } from "./MyClosetProvider"
 
 export const ClothingItem = (props) => {
-    const {deleteClosetItem, getClosetItemById} = useContext(MyClosetContext)
-    // const {closetItem, setClosetItem} = useState({category:{}})
-
-    // useEffect(()=> {
-    //     const closetItemId = parseInt(props.match.params.closetItemId)
-    //     getClosetItemById(closetItemId)
-    //         .then(setClosetItem)
-    // }, [])
-
+    const {deleteClosetItem} = useContext(MyClosetContext)
+    
     return (
     <section className = "item">
         {/* <img></img> */}
@@ -28,11 +21,11 @@ export const ClothingItem = (props) => {
                         })
                 }
             }>
-                Delete Item
+                Delete
             </button>
             <button onClick={() => {
                 props.history.push(`/myCloset/edit/${props.closetItem.id}`)
-            }}>Edit Item</button>
+            }}>Edit</button>
     </section>
 )
 }

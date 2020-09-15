@@ -6,6 +6,9 @@ import { MainPageLinks } from "./mainPage/MainPage"
 import { MyClosetMenuButtons } from "./myCloset/MyClosetMenuButtons"
 import { NewClosetItemForm } from "./myCloset/NewClosetItemForm"
 import { CategoriesProvider } from "./myCloset/CategoriesProvider"
+import { OutfitsProvider } from "./outfits/OutfitsProvider"
+import { ClothingItemsOutfitsProvider } from "./outfits/ClothingItemsOutfitsProvider"
+import { OutfitsList } from "./outfits/OutfitsList"
 
 
 export const ApplicationViews = (props) => {
@@ -54,6 +57,17 @@ export const ApplicationViews = (props) => {
                     } />
                 </CategoriesProvider>
             </MyClosetProvider>
+
+            <OutfitsProvider>
+                <MyClosetProvider>
+                    <ClothingItemsOutfitsProvider>
+                        <Route exact path="/outfits" render= {props => <OutfitsList {...props} />}>
+
+                        </Route>
+                        
+                    </ClothingItemsOutfitsProvider>
+                </MyClosetProvider>
+            </OutfitsProvider>
 
 
             {/* Used to logout current user and should always be at the bottom of the page */}

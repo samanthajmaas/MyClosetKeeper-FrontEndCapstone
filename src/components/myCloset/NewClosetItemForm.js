@@ -1,10 +1,10 @@
-import React, {useContext, useState, useEffect} from "react"
-import {MyClosetContext} from "./MyClosetProvider"
-import{CategoriesContext} from "./CategoriesProvider"
+import React, { useContext, useState, useEffect } from "react"
+import { MyClosetContext } from "./MyClosetProvider"
+import { CategoriesContext } from "./CategoriesProvider"
 
 export const NewClosetItemForm = (props) => {
-    const {addClosetItems, closetItems, updateClosetItem, getClosetItems} = useContext(MyClosetContext)
-    const {categories, getCategories} = useContext(CategoriesContext)
+    const { addClosetItems, closetItems, updateClosetItem, getClosetItems } = useContext(MyClosetContext)
+    const { categories, getCategories } = useContext(CategoriesContext)
 
     const [closetItem, setClosetItem] = useState({})
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 
 export const MyClosetContext = React.createContext()
 
@@ -11,12 +11,6 @@ export const MyClosetProvider = (props) => {
             .then(setClosetItems)
     }
 
-    const getClosetItemById = (id) => {
-        return fetch(`http://localhost:8088/closetItems/${id}`)
-            .then(res=> res.json())
-            .then(setClosetItems)
-        }
-
     const addClosetItems = (closetItem) => {
         return fetch(`http://localhost:8088/closetItems`, {
             method: "POST",
@@ -25,15 +19,15 @@ export const MyClosetProvider = (props) => {
             },
             body: JSON.stringify(closetItem)
         })
-        .then(getClosetItems)
+            .then(getClosetItems)
     }
 
     const deleteClosetItem = closetItemId => {
         return fetch(`http://localhost:8088/closetItems/${closetItemId}`, {
             method: "DELETE"
         })
-        .then(getClosetItems)
-    }   
+            .then(getClosetItems)
+    }
 
     const updateClosetItem = closetItem => {
         return fetch(`http://localhost:8088/closetItems/${closetItem.id}`, {
@@ -43,12 +37,12 @@ export const MyClosetProvider = (props) => {
             },
             body: JSON.stringify(closetItem)
         })
-        .then(getClosetItems)
+            .then(getClosetItems)
     }
 
     return (
-        <MyClosetContext.Provider value= {{
-            closetItems, addClosetItems, getClosetItems, deleteClosetItem, updateClosetItem, getClosetItemById
+        <MyClosetContext.Provider value={{
+            closetItems, addClosetItems, getClosetItems, deleteClosetItem, updateClosetItem
         }}>
             {props.children}
         </MyClosetContext.Provider>
