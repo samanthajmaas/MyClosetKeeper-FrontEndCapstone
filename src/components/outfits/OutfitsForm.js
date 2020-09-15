@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
+import MultiSelect from "react-multi-select-component"
 import { OutfitsContext } from "./OutfitsProvider"
 import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
@@ -22,6 +23,7 @@ export const NewOutfitForm = (props) => {
         setOutfit(newOutfit)
         setClothingItemOutfit(newClothingItemOutfit)
     }
+
 
     const getOutfitInEditMode = () => {
         if (editMode) {
@@ -77,27 +79,23 @@ export const NewOutfitForm = (props) => {
     }
 
 
-
     return (
         <>
             <form className="newOutfitForm">
                 <h2 className="newOutfitForm__title">{editMode ? "Update Outfit" : "Add New Outfit"}</h2>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="closetItemId">Add a Clothing Item:</label>
-                        <select name="closetItemId" className="form-control"
+                        <MultiSelect
+                            name="closetItemId"
                             proptype="int"
-                            value={clothingItemOutfit.closetItemId}
-                            onChange={handleControlledInputChange}>
-
-                            <option value="0">Select a clothing item...</option>
-                            {closetItems.map(closetItem => (
-                                <option key={closetItem.id} value={closetItem.id}>
-                                    {closetItem.type}
-                                </option>
+                            options={closetItems.map(closetItem => (
+                                closetItem.type
                             ))
                             }
-                        </select>
+                            value={clothingItemOutfit.closetItemId}
+                            onChange={handleControlledInputChange}
+                            labelledBy={"Select a clothing item..."}
+                        />
                     </div>
                 </fieldset>
                 <fieldset>
