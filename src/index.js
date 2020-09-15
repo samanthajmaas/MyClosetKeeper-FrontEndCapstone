@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter as Router } from "react-router-dom"
-import { MyClosetKeeper } from "./components/myClosetKeeper"
+import { MyClosetKeeper } from "./components/MyClosetKeeper"
 
 
 ReactDOM.render(
