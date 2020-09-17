@@ -41,7 +41,11 @@ export const OutfitsProvider = (props) => {
             },
             body: JSON.stringify(outfit)
         })
-            .then(getOutfits)
+        .then(res => res.json())
+        .then((outfit) => {
+            getOutfits()
+            return outfit
+        })
     }
 
     return (

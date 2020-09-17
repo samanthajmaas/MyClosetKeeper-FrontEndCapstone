@@ -6,9 +6,10 @@ import { Outfit } from "./Outfit"
 
 
 export const OutfitsList = (props) => {
-    const { outfits, getOutfits } = useContext(OutfitsContext)
+    const { outfits, getOutfits, addOutfits } = useContext(OutfitsContext)
     const { closetItems, getClosetItems } = useContext(MyClosetContext)
     const { clothingItemOutfits, getClothingItemsOutfits } = useContext(ClothingItemsOutfitsContext)
+
 
     useEffect(() => {
         getOutfits()
@@ -16,11 +17,21 @@ export const OutfitsList = (props) => {
         getClothingItemsOutfits()
     }, [])
 
+    const createNewOutfitObj = () => {
+        addOutfits({
+            event: "",
+            userId: parseInt(localStorage.getItem("closet__user"))
+        })
+        .then(() => props.history.push("/outfits/create"))
+    }
+
     return (
         <>
         <div className="outfits">
                 <h2>Outfits</h2>
-                <button onClick={() => props.history.push("/outfits/create")}>
+                <button onClick={() => {
+                    createNewOutfitObj()
+                }}>
                     +Outfit
                 </button>
                 {
