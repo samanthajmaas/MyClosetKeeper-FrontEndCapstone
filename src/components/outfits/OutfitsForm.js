@@ -10,8 +10,8 @@ export const NewOutfitForm = (props) => {
     const [outfit, setOutfit] = useState({})
     const [closetItem, setClosetItem] = useState({})
     const [clothingItemOutfit, setClothingItemOutfit] = useState({})
-
-
+    
+  
     const handleControlledInputChange = (broswerEvent) => {
         const newOutfit = Object.assign({}, outfit)
         newOutfit[broswerEvent.target.name] = broswerEvent.target.value
@@ -35,7 +35,6 @@ export const NewOutfitForm = (props) => {
         getOutfitToSave()
     }, [outfits, clothingItemOutfits])
 
-
     const saveOutfitWithEvent = () => {
         
         updateOutfit({
@@ -50,7 +49,7 @@ export const NewOutfitForm = (props) => {
         return (
             <>
                 <form className="newOutfitForm">
-                    <h2 className="newOutfitForm__title"> Add New Outfit</h2>
+                    <h2 className="newOutfitForm__title">{props.edit ? "Update Outfit" : "Add New Outfit"}</h2>
                     <ClothingItemSelector key={clothingItemOutfit.id} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
                     <fieldset>
                         <div className="form-group">

@@ -7,8 +7,28 @@ export const NewClosetItemForm = (props) => {
     const { categories, getCategories } = useContext(CategoriesContext)
 
     const [closetItem, setClosetItem] = useState({})
+    const [image, setImage] = useState('')
+    const [ loading, setLoading] = useState(false)
 
     const editMode = props.match.params.hasOwnProperty("closetItemId")
+
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'myClosetKeeper')
+        setLoading(true)
+        const res = await fetch(
+            `	https://api.cloudinary.com/v1_1/dkzwttxez/image/upload`,
+            {
+                method:"POST",
+                body: data
+            }
+        )
+        const file = await res.json()
+        setImage(file.secure_url)
+        setLoading(false)
+    }
 
     const handleControlledInputChange = (event) => {
         const newClosetItem = Object.assign({}, closetItem)
@@ -43,6 +63,7 @@ export const NewClosetItemForm = (props) => {
             if (editMode) {
                 updateClosetItem({
                     id: closetItem.id,
+                    image: image,
                     type: closetItem.type,
                     color: closetItem.color,
                     size: closetItem.size,
@@ -54,6 +75,7 @@ export const NewClosetItemForm = (props) => {
                     .then(() => props.history.push(`/myCloset`))
             } else {
                 addClosetItems({
+                    image: image,
                     type: closetItem.type,
                     color: closetItem.color,
                     size: closetItem.size,
@@ -72,11 +94,23 @@ export const NewClosetItemForm = (props) => {
             <h2 className="newClothingItemForm__title">{editMode ? "Update Clothing Item" : "Add New Item"}</h2>
             <fieldset>
                 <div className="form-group">
+                    <input className="clothingItem__image"
+                    type="file"
+                    name="file"
+                    placeholder="Upload an image"
+                    onChange={uploadImage}
+                    />
+                    {loading ? (
+                        <div> Loading... </div>
+                    ): (
+                        <img src={image} style={{width: "100px"}}/>
+                    )}
                     <label htmlFor="categoryId">Category: </label>
                     <select name="categoryId" className="form-control"
                         proptype="int"
                         value={closetItem.categoryId}
-                        onChange={handleControlledInputChange}>
+                        onChange={handleControlledInputChange}
+                        >
 
                         <option value="0">Select a category</option>
                         {categories.map(e => (
