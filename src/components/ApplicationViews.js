@@ -66,7 +66,7 @@ export const ApplicationViews = (props) => {
                             props => <OutfitsList {...props} />
                         }>
                         </Route>
-                        <Route exact path="/outfits/create" render={
+                        <Route exact path="/outfits/:outfitId(\d+)/create" render={
                             props => <NewOutfitForm {...props} />
                         } />
 

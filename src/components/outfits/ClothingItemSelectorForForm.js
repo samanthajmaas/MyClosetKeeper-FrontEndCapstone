@@ -5,17 +5,17 @@ import { ClothingItemSelected } from "./ClothingItemsSelected"
 import { OutfitsContext } from "./OutfitsProvider"
 
 export const ClothingItemSelector = (props) => {
-    const { getClothingItemsOutfits, addClothingItemsOutfits, deleteClothingItemsOutfits } = useContext(ClothingItemsOutfitsContext)
+    const { clothingItemOutfits, getClothingItemsOutfits, addClothingItemsOutfits } = useContext(ClothingItemsOutfitsContext)
     const { closetItems, getClosetItems } = useContext(MyClosetContext)
     const { outfits, getOutfits } = useContext(OutfitsContext)
 
-    const [closetItem] = useState({})
     const [clothingItemOutfit, setClothingItemOutfit] = useState({})
-
+    const [selectedClosetItems, setSelectedClosetItems] = useState([])
 
     const handleControlledInputChange = (broswerEvent) => {
-        const selectedClothingItem = Object.assign({}, closetItem)
+        const selectedClothingItem = Object.assign({}, props.closetItem)
         selectedClothingItem[broswerEvent.target.name] = broswerEvent.target.value
+        props.setClosetItem(selectedClothingItem)
         setClothingItemOutfit(selectedClothingItem)
     }
 
@@ -28,10 +28,26 @@ export const ClothingItemSelector = (props) => {
         getOutfits()
     }, [])
 
+    useEffect(() => {
+        // Filtering over the relationships array to find the outfitIds that match the Outfit id in the URL
+        const relationships = clothingItemOutfits.filter(o => o.outfitId === parseInt(props.match.params.outfitId)) || {}
+        // Mapping over the new array of relationships that only have the matching outfit Id that we need
+        const findClothingItem = relationships.map(ci => {
+            //In this new relationships array, we are trying to find the closet item that matches the relationship closet item
+            const foundClothingItem = closetItems.find(closetItem => closetItem.id === ci.closetItemId)
+            //We are updating the obj stored in the foundClothingItem variable with a new property called relationship Id and we are setting that Id to the Id of the relationship obj
+            foundClothingItem.relationshipId = ci.id
+            // here we are returning that obj which is saved in the findClothingItem variable
+            return foundClothingItem
+        })
+        // updating the selectedClosetItems array state variable with this obj. 
+        setSelectedClosetItems(findClothingItem)
+    }, [clothingItemOutfits])
+
     const constructNewRelationship = () => {
         const closetItemId = parseInt(clothingItemOutfit.closetItemId)
         const getOutfitId = outfits.find(outfit => outfit.id === outfits.length)
-        
+
         addClothingItemsOutfits({
             closetItemId: closetItemId,
             outfitId: getOutfitId.id
@@ -63,22 +79,17 @@ export const ClothingItemSelector = (props) => {
                     constructNewRelationship()
                 }}
                 className="btn btn-primary">
-                {"Save"}
+                {"+"}
             </button>
+
+
             <div>
-
-
-                {/* This is where I need to render the list of clothing items the user has selected!! */}
-                <button onClick={() => {
-                    deleteClothingItemsOutfits(props.clothingItemsOutfit.clothingItemId)
-                }}>x
-                    </button>
-
-
+                {/* We are mapping over the array of selected closet items and then for each one we are passing through the ClothingItemSelected function to have it render to the DOM */}
+                {selectedClosetItems.map(selected => {
+                    return <ClothingItemSelected key={selected.id} selected={selected} clothingItemOutfit ={clothingItemOutfit} {...props} />
+                })}
             </div>
+
         </>
-
-
-
     )
 }

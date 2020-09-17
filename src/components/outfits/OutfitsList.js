@@ -22,7 +22,7 @@ export const OutfitsList = (props) => {
             event: "",
             userId: parseInt(localStorage.getItem("closet__user"))
         })
-        .then(() => props.history.push("/outfits/create"))
+        .then((outfitObj) => props.history.push(`/outfits/${outfitObj.id}/create`))
     }
 
     return (
