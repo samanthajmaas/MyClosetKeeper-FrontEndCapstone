@@ -6,7 +6,7 @@ export const OutfitsProvider = (props) => {
     const [outfits, setOutfits] = useState([])
 
     const getOutfits = () => {
-        return fetch ("http://localhost:8088/outfits")
+        return fetch("http://localhost:8088/outfits")
             .then(res => res.json())
             .then(setOutfits)
     }
@@ -19,14 +19,18 @@ export const OutfitsProvider = (props) => {
             },
             body: JSON.stringify(outfit)
         })
-            .then(getOutfits)
+            .then(res => res.json())
+            .then((outfit) => {
+                getOutfits()
+                return outfit
+            })
     }
 
     const deleteOutfit = (outfitId) => {
         return fetch(`http://localhost:8088/outfits/${outfitId}`, {
             method: "DELETE"
         })
-        .then(getOutfits)
+            .then(getOutfits)
     }
 
     const updateOutfit = outfit => {
@@ -37,7 +41,11 @@ export const OutfitsProvider = (props) => {
             },
             body: JSON.stringify(outfit)
         })
-            .then(getOutfits)
+        .then(res => res.json())
+        .then((outfit) => {
+            getOutfits()
+            return outfit
+        })
     }
 
     return (

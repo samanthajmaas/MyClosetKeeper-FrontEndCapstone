@@ -9,6 +9,7 @@ import { CategoriesProvider } from "./myCloset/CategoriesProvider"
 import { OutfitsProvider } from "./outfits/OutfitsProvider"
 import { ClothingItemsOutfitsProvider } from "./outfits/ClothingItemsOutfitsProvider"
 import { OutfitsList } from "./outfits/OutfitsList"
+import { NewOutfitForm } from "./outfits/OutfitsForm"
 
 
 export const ApplicationViews = (props) => {
@@ -25,27 +26,27 @@ export const ApplicationViews = (props) => {
             <MyClosetProvider>
                 <CategoriesProvider>
                     <Route exact path="/myCloset/tops" render={props => <MyTopsList {...props} />}>
-                        
+
                     </Route>
 
                     <Route exact path="/myCloset/bottoms" render={props => <MyBottomsList {...props} />}>
-                        
+
                     </Route>
 
                     <Route exact path="/myCloset/onePieces" render={props => <MyOnePiecesList {...props} />}>
-                        
+
                     </Route>
 
                     <Route exact path="/myCloset/jackets" render={props => <MyJacketsList {...props} />}>
-                        
+
                     </Route>
 
                     <Route exact path="/myCloset/shoes" render={props => <MyShoesList {...props} />}>
-        
+
                     </Route>
 
                     <Route exact path="/myCloset/accessorys" render={props => <MyAccessoriesList {...props} />}>
-        
+
                     </Route>
 
                     <Route exact path="/myCloset/create" render={
@@ -61,10 +62,18 @@ export const ApplicationViews = (props) => {
             <OutfitsProvider>
                 <MyClosetProvider>
                     <ClothingItemsOutfitsProvider>
-                        <Route exact path="/outfits" render= {props => <OutfitsList {...props} />}>
-
+                        <Route exact path="/outfits" render={
+                            props => <OutfitsList {...props} />
+                        }>
                         </Route>
-                        
+                        <Route exact path="/outfits/:outfitId(\d+)/create" render={
+                            props => <NewOutfitForm {...props} edit ={false}/>
+                        } />
+
+                        <Route path="/outfits/edit/:outfitId(\d+)" render={
+                            props => <NewOutfitForm {...props} edit={true}/>
+                        } />
+
                     </ClothingItemsOutfitsProvider>
                 </MyClosetProvider>
             </OutfitsProvider>

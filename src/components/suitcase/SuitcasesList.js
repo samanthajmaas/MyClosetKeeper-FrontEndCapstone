@@ -1,8 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { OutfitsContext } from "./OutfitsProvider"
-import { MyClosetContext } from "../myCloset/MyClosetProvider"
-import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
-import { Outfit } from "./Outfit"
+
 
 
 export const OutfitsList = (props) => {

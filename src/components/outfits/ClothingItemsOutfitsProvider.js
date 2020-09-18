@@ -42,7 +42,7 @@ export const ClothingItemsOutfitsProvider = (props)=> {
 
     return (
         <ClothingItemsOutfitsContext.Provider value= {{
-            clothingItemOutfits, getClothingItemsOutfits, addClothingItemsOutfits, deleteClothingItemsOutfits, updateClothingItemsOutfits
+            clothingItemOutfits, getClothingItemsOutfits, addClothingItemsOutfits, updateClothingItemsOutfits, deleteClothingItemsOutfits
         }}>
             {props.children}
         </ClothingItemsOutfitsContext.Provider>

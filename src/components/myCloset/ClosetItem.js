@@ -6,7 +6,7 @@ export const ClothingItem = (props) => {
     
     return (
     <section className = "item">
-        {/* <img></img> */}
+        <img src={props.closetItem.image} style={{width: "100px"}}/>
         <div className="item__type">{props.closetItem.type}</div>
         <div className="item__color">{props.closetItem.color}</div>
         <div className="item__size">{props.closetItem.size}</div>
