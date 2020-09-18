@@ -34,7 +34,7 @@ export const SuitcaseProvider = (props) => {
     }
 
     const updateSuitcase = (suitcase) => {
-        return fetch(`http::localhost:8088/suitcases/${suitcase.id}`, {
+        return fetch(`http://localhost:8088/suitcases/${suitcase.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

@@ -6,7 +6,7 @@ export const Suitcase = (props) => {
 
     return (
         <section className="suitcase">
-            {/* <img src={props.outfit.image} style={{width: "100px"}}/> */}
+            <img src={props.suitcase.image} style={{width: "100px"}}/>
             <div className="suitcase__tripName">{props.suitcase.tripName}</div>
             <div className="suitcase__outfits">
                 {
