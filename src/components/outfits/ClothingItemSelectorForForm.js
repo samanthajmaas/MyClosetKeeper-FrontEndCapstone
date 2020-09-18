@@ -66,7 +66,7 @@ export const ClothingItemSelector = (props) => {
                         <option value="0">Select a clothing item...</option>
                         {closetItems.map(closetItem => (
                             <option key={closetItem.id} value={closetItem.id}>
-                                {closetItem.type}
+                              {closetItem.type}
                             </option>
                         ))
                         }

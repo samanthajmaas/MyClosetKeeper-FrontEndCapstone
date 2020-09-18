@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { OutfitsContext } from "./OutfitsProvider"
 
 export const Outfit = (props) => {
@@ -7,7 +6,7 @@ export const Outfit = (props) => {
 
     return (
         <section className="outfit">
-            {/* <img></img> */}
+            <img src={props.outfit.image} style={{width: "100px"}}/>
             <div className="outfit__event">{props.outfit.event}</div>
             <div className="outfit__clothingItem">
                 {

@@ -105,6 +105,7 @@ export const NewClosetItemForm = (props) => {
                     ): (
                         <img src={image} style={{width: "100px"}}/>
                     )}
+                    <br></br>
                     <label htmlFor="categoryId">Category: </label>
                     <select name="categoryId" className="form-control"
                         proptype="int"
