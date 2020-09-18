@@ -54,6 +54,8 @@ export const ClothingItemSelector = (props) => {
         })
     }
 
+
+
     return (
         <>
             <fieldset>

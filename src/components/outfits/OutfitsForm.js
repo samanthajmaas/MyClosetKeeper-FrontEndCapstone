@@ -70,9 +70,7 @@ export const NewOutfitForm = (props) => {
         <>
             <form className="newOutfitForm">
                 <h2 className="newOutfitForm__title">{props.edit ? "Update Outfit" : "Add New Outfit"}</h2>
-                <ClothingItemSelector key={clothingItemOutfit.id} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
-                <fieldset>
-                    <input className="outfit__image"
+                <input className="outfit__image"
                         type="file"
                         name="file"
                         placeholder="Upload an image"
@@ -84,6 +82,9 @@ export const NewOutfitForm = (props) => {
                             <img src={image} style={{ width: "100px" }} />
                         )}
                     <br></br>
+                <ClothingItemSelector key={clothingItemOutfit.id} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
+                <fieldset>
+                    
                     <div className="form-group">
                         <label htmlFor="event">Event: </label>
                         <textarea type="text" name="event" required autoFocus className="form-control"
