@@ -10,6 +10,10 @@ import { OutfitsProvider } from "./outfits/OutfitsProvider"
 import { ClothingItemsOutfitsProvider } from "./outfits/ClothingItemsOutfitsProvider"
 import { OutfitsList } from "./outfits/OutfitsList"
 import { NewOutfitForm } from "./outfits/OutfitsForm"
+import { SuitcaseProvider } from "./suitcase/SuitcaseProvider"
+import { SuitcasesOutfitsProvider } from "./suitcase/SuitcasesOutfitsProvider"
+import { SuitcasesClosetItemsProvider } from "./suitcase/SuitcasesClosetItemsProvider"
+import {SuitcasesList} from "./suitcase/SuitcasesList"
 
 
 export const ApplicationViews = (props) => {
@@ -67,16 +71,30 @@ export const ApplicationViews = (props) => {
                         }>
                         </Route>
                         <Route exact path="/outfits/:outfitId(\d+)/create" render={
-                            props => <NewOutfitForm {...props} edit ={false}/>
+                            props => <NewOutfitForm {...props} edit={false} />
                         } />
 
                         <Route path="/outfits/edit/:outfitId(\d+)" render={
-                            props => <NewOutfitForm {...props} edit={true}/>
+                            props => <NewOutfitForm {...props} edit={true} />
                         } />
 
                     </ClothingItemsOutfitsProvider>
                 </MyClosetProvider>
             </OutfitsProvider>
+
+            <SuitcaseProvider>
+                <MyClosetProvider>
+                    <OutfitsProvider>
+                        <SuitcasesOutfitsProvider>
+                            <SuitcasesClosetItemsProvider>
+                                <Route exact path="/suitcases" render={
+                                    props => <SuitcasesList {...props} />
+                                } />
+                            </SuitcasesClosetItemsProvider>
+                        </SuitcasesOutfitsProvider>
+                    </OutfitsProvider>
+                </MyClosetProvider>
+            </SuitcaseProvider>
 
 
             {/* Used to logout current user and should always be at the bottom of the page */}

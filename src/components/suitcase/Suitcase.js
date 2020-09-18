@@ -11,7 +11,7 @@ export const Suitcase = (props) => {
             <div className="suitcase__outfits">
                 {
                     props.findOutfits.map(outfit => {
-                        return (<li>{outfit.image}</li>)
+                        return (<img src={outfit.image} style={{ width: "100px" }}  />)
                     })
 
                 }
@@ -19,7 +19,7 @@ export const Suitcase = (props) => {
             <div className="suitcase__closetItems">
                 {
                     props.findClosetItems.map(closetItem => {
-                        return (<li>{closetItem.image}</li>)
+                        return (<img src={closetItem.image} style={{ width: "100px" }}  />)
                     })
 
                 }
