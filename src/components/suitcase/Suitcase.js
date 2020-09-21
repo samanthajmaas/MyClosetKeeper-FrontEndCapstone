@@ -1,4 +1,6 @@
 import React, { useContext } from "react"
+import Popup from "reactjs-popup"
+import { SuitcaseDetails } from "./SuitcaseDetails"
 import { SuitcaseContext } from "./SuitcaseProvider"
 
 export const Suitcase = (props) => {
@@ -6,24 +8,12 @@ export const Suitcase = (props) => {
 
     return (
         <section className="suitcase">
-            <img src={props.suitcase.image} style={{width: "100px"}}/>
             <div className="suitcase__tripName">{props.suitcase.tripName}</div>
-            <div className="suitcase__outfits">
-                {
-                    props.findOutfits.map(outfit => {
-                        return (<img src={outfit.image} style={{ width: "100px" }}  />)
-                    })
-
-                }
-            </div>
-            <div className="suitcase__closetItems">
-                {
-                    props.findClosetItems.map(closetItem => {
-                        return (<img src={closetItem.image} style={{ width: "100px" }}  />)
-                    })
-
-                }
-            </div>
+            <img src={props.suitcase.image} style={{width: "100px"}}/>
+            
+            <Popup trigger={<button> View Suitcase </button>} position="center">
+                <SuitcaseDetails key ={props.suitcase.id} suitcase={props.suitcase} outfits={props.outfits} closetItems={props.closetItems} findClosetItems={props.findClosetItems} findOutfits={props.findOutfits} {...props}/> 
+            </Popup>
             <button onClick={
                 () => {
                     deleteSuitcase(props.suitcase.id)
@@ -34,9 +24,6 @@ export const Suitcase = (props) => {
             }>
                 Delete
             </button>
-            <button onClick={() => {
-                props.history.push(`/suitcases/edit/${props.suitcase.id}`)
-            }}>Edit</button>
         </section>
     )
 }

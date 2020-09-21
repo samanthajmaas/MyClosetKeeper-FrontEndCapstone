@@ -68,6 +68,8 @@ export const NewSuitcaseForm = (props) => {
             id: suitcase.id,
             image: image,
             tripName: suitcase.tripName,
+            zipCode: suitcase.zipCode,
+            description: suitcase.description,
             userId: parseInt(localStorage.getItem("closet__user"))
         })
             .then(() => props.history.push(`/suitcases`))
@@ -93,14 +95,34 @@ export const NewSuitcaseForm = (props) => {
                 <OutfitSelector key={suitcaseOutfit.id} outfit={outfit} setOutfit={setOutfit} {...props} />
                 <ClosetItemSelector key={suitcaseClosetItem.id} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
                 <fieldset>
-                    
                     <div className="form-group">
-                        <label htmlFor="tripName">Where are you going? </label>
-                        <textarea type="text" name="tripName" required autoFocus className="form-control"
+                        <label htmlFor="tripName">Where are you going?</label>
+                        <input type="text" name="tripName" required autoFocus className="form-control"
                             proptype="varchar"
                             defaultValue={suitcase.tripName}
                             onChange={handleControlledInputChange}
-                        ></textarea>
+                        ></input>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="zipCode">Zip Code for Location</label>
+                        <input type="text" name="zipCode" required autoFocus className="form-control"
+                            proptype="varchar"
+                            defaultValue={suitcase.zipCode}
+                            onChange={handleControlledInputChange}
+                        ></input>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="description">Description of trip:</label>
+                        <input type="text" name="description" required autoFocus className="form-control"
+                            proptype="varchar"
+                            placeholder="Why are you going? What will you do while there?"
+                            defaultValue={suitcase.description}
+                            onChange={handleControlledInputChange}
+                        ></input>
                     </div>
                 </fieldset>
                 <button type="submit"
