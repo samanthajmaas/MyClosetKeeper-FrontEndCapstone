@@ -15,8 +15,6 @@ export const SuitcasesList = (props) => {
     const {suitcasesOutfits, getSuitcasesOutfits} = useContext(SuitcasesOutfitsContext)
     const {suitcasesClosetItems, getSuitcasesClosetItems} = useContext(SuitcasesClosetItemsContext)
     
-
-
     useEffect(() => {
         getSuitcases()
         getOutfits()
@@ -24,6 +22,8 @@ export const SuitcasesList = (props) => {
         getSuitcasesOutfits()
         getSuitcasesClosetItems()
     }, [])
+
+    const filteredSuitcase = suitcases.filter(suitcase => suitcase.userId === parseInt(localStorage.getItem("closet__user")))
 
     const createNewSuitcasesObj = () => {
         addSuitcases({
@@ -43,7 +43,7 @@ export const SuitcasesList = (props) => {
                     +Suitcase
                 </button>
                 {
-                suitcases.map(suitcase => {
+                filteredSuitcase.map(suitcase => {
                     const outfitRelationships = suitcasesOutfits.filter(so => so.suitcaseId === suitcase.id)
                     const findOutfits = outfitRelationships.map(or => {
                         return outfits.find(outfit => outfit.id === or.outfitId)
