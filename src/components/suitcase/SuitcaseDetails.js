@@ -1,5 +1,5 @@
 import React from "react"
-import { WeatherList } from "../weather/WeatherList"
+// import { WeatherList } from "../weather/WeatherList"
 
 export const SuitcaseDetails = (props) => {
     
@@ -22,9 +22,9 @@ export const SuitcaseDetails = (props) => {
 
                 }
             </div>
-            <div>
+            {/* <div>
             <WeatherList key ={props.suitcase.id} suitcase={props.suitcase} {...props}/>
-            </div>
+            </div> */}
             <div className="suitcase__description">{props.suitcase.description}</div>
             <button onClick={() => {
                 props.history.push(`/suitcases/edit/${props.suitcase.id}`)

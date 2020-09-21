@@ -15,7 +15,7 @@ import { SuitcasesOutfitsProvider } from "./suitcase/SuitcasesOutfitsProvider"
 import { SuitcasesClosetItemsProvider } from "./suitcase/SuitcasesClosetItemsProvider"
 import { SuitcasesList } from "./suitcase/SuitcasesList"
 import { NewSuitcaseForm } from "./suitcase/NewSuitcaseForm"
-import { WeatherProvider } from "./weather/WeatherProvider"
+// import { WeatherProvider } from "./weather/WeatherProvider"
 
 
 export const ApplicationViews = (props) => {
@@ -89,7 +89,7 @@ export const ApplicationViews = (props) => {
                     <OutfitsProvider>
                         <SuitcasesOutfitsProvider>
                             <SuitcasesClosetItemsProvider>
-                                <WeatherProvider>
+                               
                                     <Route exact path="/suitcases" render={
                                         props => <SuitcasesList {...props} />
                                     } />
@@ -101,7 +101,7 @@ export const ApplicationViews = (props) => {
                                     <Route path="/suitcases/edit/:suitcaseId(\d+)" render={
                                         props => <NewSuitcaseForm {...props} edit={true} />
                                     } />
-                                </WeatherProvider>
+                               
                             </SuitcasesClosetItemsProvider>
                         </SuitcasesOutfitsProvider>
                     </OutfitsProvider>

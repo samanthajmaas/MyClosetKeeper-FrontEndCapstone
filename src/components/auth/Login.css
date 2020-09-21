@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
 
 .login--header{
-    position: absolute;
-    left: 49px;
-top: 350px;
     font-family: 'Euphoria Script', cursive;
     font-style: normal;
     font-weight: normal;
