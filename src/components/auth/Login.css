@@ -65,8 +65,6 @@ fieldset {
 }
 
 
-
-
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
@@ -74,4 +72,18 @@ fieldset {
 
 link{
     position: relative;           
+}
+
+.submitButton{
+width: 76px;
+height: 32px;
+left: 150px;
+top: 525px;
+font-family: Lora;
+background: rgba(255, 255, 255, 0.78);
+border: 3px solid #C6AD8F;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;
+justify-content: center;
 }

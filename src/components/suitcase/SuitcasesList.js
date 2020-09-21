@@ -1,46 +1,63 @@
 import React, { useContext, useEffect } from "react"
+import { MyClosetContext } from "../myCloset/MyClosetProvider"
+import { OutfitsContext } from "../outfits/OutfitsProvider"
+import { Suitcase } from "./Suitcase"
+import { SuitcaseContext } from "./SuitcaseProvider"
+import { SuitcasesClosetItemsContext } from "./SuitcasesClosetItemsProvider"
+import { SuitcasesOutfitsContext } from "./SuitcasesOutfitsProvider"
 
 
 
-export const OutfitsList = (props) => {
-    const { outfits, getOutfits, addOutfits } = useContext(OutfitsContext)
+export const SuitcasesList = (props) => {
+    const {suitcases, getSuitcases, addSuitcases} = useContext(SuitcaseContext)
+    const { outfits, getOutfits} = useContext(OutfitsContext)
     const { closetItems, getClosetItems } = useContext(MyClosetContext)
-    const { clothingItemOutfits, getClothingItemsOutfits } = useContext(ClothingItemsOutfitsContext)
+    const {suitcasesOutfits, getSuitcasesOutfits} = useContext(SuitcasesOutfitsContext)
+    const {suitcasesClosetItems, getSuitcasesClosetItems} = useContext(SuitcasesClosetItemsContext)
+    
 
 
     useEffect(() => {
+        getSuitcases()
         getOutfits()
         getClosetItems()
-        getClothingItemsOutfits()
+        getSuitcasesOutfits()
+        getSuitcasesClosetItems()
     }, [])
 
-    const createNewOutfitObj = () => {
-        addOutfits({
-            event: "",
+    const createNewSuitcasesObj = () => {
+        addSuitcases({
+            tripName: "",
             userId: parseInt(localStorage.getItem("closet__user"))
         })
-        .then((outfitObj) => props.history.push(`/outfits/${outfitObj.id}/create`))
+        .then((suitcaseObj) => props.history.push(`/suitcases/${suitcaseObj.id}/create`))
     }
 
     return (
         <>
-        <div className="outfits">
-                <h2>Outfits</h2>
+        <div className="suitcases">
+                <h2>Suitcases</h2>
                 <button onClick={() => {
-                    createNewOutfitObj()
+                    createNewSuitcasesObj()
                 }}>
-                    +Outfit
+                    +Suitcase
                 </button>
                 {
-                    outfits.map(outfit => {
-                        const relationships = clothingItemOutfits.filter(co => co.outfitId === outfit.id)
-                        const findClothingItems = relationships.map(ci => {
-                            return closetItems.find(closetItem => closetItem.id === ci.closetItemId)
-                        })
-
-                        return <Outfit key={outfit.id} outfit={outfit} closetItems={closetItems} findClothingItems={findClothingItems} {...props} />
+                suitcases.map(suitcase => {
+                    const outfitRelationships = suitcasesOutfits.filter(so => so.suitcaseId === suitcase.id)
+                    const findOutfits = outfitRelationships.map(or => {
+                        return outfits.find(outfit => outfit.id === or.outfitId)
                     })
-                }
+                    const closetItemsRelationships = suitcasesClosetItems.filter(sci => sci.suitcaseId === suitcase.id)
+                    const findClosetItems = closetItemsRelationships.map(cir => {
+                        return closetItems.find(closetItem => closetItem.id === cir.closetItemId)
+                    })
+
+                    return <Suitcase key ={suitcase.id} suitcase={suitcase} outfits={outfits} closetItems={closetItems} findClosetItems={findClosetItems} findOutfits={findOutfits} {...props} />
+
+                })
+            }
+
             </div>
         </>
     )

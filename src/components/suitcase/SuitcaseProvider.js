@@ -34,7 +34,7 @@ export const SuitcaseProvider = (props) => {
     }
 
     const updateSuitcase = (suitcase) => {
-        return fetch(`http::localhost:8088/suitcases/${suitcase.id}`, {
+        return fetch(`http://localhost:8088/suitcases/${suitcase.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -48,9 +48,14 @@ export const SuitcaseProvider = (props) => {
             })
     }
 
+    const getSuitcaseById = (id) => {
+        return fetch(`http://localhost:8088/suitcases/${id}`)
+            .then(res => res.json())
+    }
+
     return (
         <SuitcaseContext.Provider value={{
-            suitcases, getSuitcases, addSuitcases, deleteSuitcase, updateSuitcase
+            suitcases, getSuitcases, addSuitcases, deleteSuitcase, updateSuitcase, getSuitcaseById
         }}>
             {props.children}
         </SuitcaseContext.Provider>

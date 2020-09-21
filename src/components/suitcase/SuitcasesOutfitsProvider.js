@@ -42,11 +42,11 @@ export const SuitcasesOutfitsProvider = (props)=> {
     }
 
     return (
-        <SuitcasesClosetItemsContext.Provider value= {{
+        <SuitcasesOutfitsContext.Provider value= {{
             suitcasesOutfits, getSuitcasesOutfits, addSuitcasesOutfits, updateSuitcasesOutfits, deleteSuitcasesOutfits
         }}>
             {props.children}
-        </SuitcasesClosetItemsContext.Provider>
+        </SuitcasesOutfitsContext.Provider>
     )
     
 }

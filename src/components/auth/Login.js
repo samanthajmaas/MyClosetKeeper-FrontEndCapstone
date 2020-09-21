@@ -42,7 +42,7 @@ export const Login = props => {
                 <div>Password does not match</div>
                 <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
             </dialog>
-            <section>
+            <section className="bottom--login">
                 <form className="form--login" onSubmit={handleLogin}>
                     
                     <fieldset>
@@ -60,7 +60,7 @@ export const Login = props => {
                             required />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button type="submit" className="submitButton">
                             Sign in
                         </button>
                     </fieldset>
