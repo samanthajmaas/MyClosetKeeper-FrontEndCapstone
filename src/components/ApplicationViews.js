@@ -15,7 +15,7 @@ import { SuitcasesOutfitsProvider } from "./suitcase/SuitcasesOutfitsProvider"
 import { SuitcasesClosetItemsProvider } from "./suitcase/SuitcasesClosetItemsProvider"
 import { SuitcasesList } from "./suitcase/SuitcasesList"
 import { NewSuitcaseForm } from "./suitcase/NewSuitcaseForm"
-import { SuitcaseDetails } from "./suitcase/SuitcaseDetails"
+import { WeatherProvider } from "./weather/WeatherProvider"
 
 
 export const ApplicationViews = (props) => {
@@ -89,22 +89,19 @@ export const ApplicationViews = (props) => {
                     <OutfitsProvider>
                         <SuitcasesOutfitsProvider>
                             <SuitcasesClosetItemsProvider>
-                                <Route exact path="/suitcases" render={
-                                    props => <SuitcasesList {...props} />
-                                } />
+                                <WeatherProvider>
+                                    <Route exact path="/suitcases" render={
+                                        props => <SuitcasesList {...props} />
+                                    } />
 
-                                <Route exact path="/suitcases/:suitcaseId(\d+)/create" render={
-                                    props => <NewSuitcaseForm {...props} edit={false} />
-                                } />
+                                    <Route exact path="/suitcases/:suitcaseId(\d+)/create" render={
+                                        props => <NewSuitcaseForm {...props} edit={false} />
+                                    } />
 
-                                <Route path="/suitcases/edit/:suitcaseId(\d+)" render={
-                                    props => <NewSuitcaseForm {...props} edit={true} />
-                                } />
-{/* 
-                                <Route path="/suitcases/:suitcaseId(\d+)" render={
-                                    props => <SuitcaseDetails {...props} />
-                                } /> */}
-
+                                    <Route path="/suitcases/edit/:suitcaseId(\d+)" render={
+                                        props => <NewSuitcaseForm {...props} edit={true} />
+                                    } />
+                                </WeatherProvider>
                             </SuitcasesClosetItemsProvider>
                         </SuitcasesOutfitsProvider>
                     </OutfitsProvider>

@@ -1,17 +1,8 @@
-import React, { useContext, useState } from "react"
-// import { MyClosetContext } from "../myCloset/MyClosetProvider"
-// import { OutfitsContext } from "../outfits/OutfitsProvider"
-// import { SuitcaseContext } from "./SuitcaseProvider"
+import React from "react"
+import { WeatherList } from "../weather/WeatherList"
 
 export const SuitcaseDetails = (props) => {
-    // const {suitcases, getSuitcases} = useContext(SuitcaseContext)
-    // const {outfits, getOutfits}= useContext(OutfitsContext)
-    // const {closetItems, getClosetItems} = useContext(MyClosetContext)
-
-    // const [suitcase, setSuitcase] = useState({})
-    // const[outfit, setOutfit] = useState({})
-    // const [closetItem, setClosetItem] = useState({})
-
+    
     return (
         <>
             <div className="suitcase__tripName">{props.suitcase.tripName}</div>
@@ -30,6 +21,9 @@ export const SuitcaseDetails = (props) => {
                     })
 
                 }
+            </div>
+            <div>
+            <WeatherList key ={props.suitcase.id} suitcase={props.suitcase} {...props}/>
             </div>
             <div className="suitcase__description">{props.suitcase.description}</div>
             <button onClick={() => {

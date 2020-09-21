@@ -10,7 +10,6 @@ export const Suitcase = (props) => {
         <section className="suitcase">
             <div className="suitcase__tripName">{props.suitcase.tripName}</div>
             <img src={props.suitcase.image} style={{width: "100px"}}/>
-            
             <Popup trigger={<button> View Suitcase </button>} position="center">
                 <SuitcaseDetails key ={props.suitcase.id} suitcase={props.suitcase} outfits={props.outfits} closetItems={props.closetItems} findClosetItems={props.findClosetItems} findOutfits={props.findOutfits} {...props}/> 
             </Popup>
