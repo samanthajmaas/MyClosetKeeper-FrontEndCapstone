@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { MyClosetContext } from "./MyClosetProvider"
 import { ClothingItem } from "./ClosetItem"
+import { Link } from "react-router-dom"
 
 export const MyTopsList = (props) => {
     const { closetItems, getClosetItems } = useContext(MyClosetContext)
@@ -11,6 +12,7 @@ export const MyTopsList = (props) => {
 
     return (
         <>
+            <Link className="navbar__link" to="/MyCloset">Back to My Closet</Link>
             <h1> Tops </h1>
 
             <div className="closetItems">
@@ -22,6 +24,7 @@ export const MyTopsList = (props) => {
                     })
                 }
             </div>
+            
         </>
     )
 }
@@ -35,6 +38,7 @@ export const MyBottomsList = (props) => {
 
     return (
         <>
+        <Link className="navbar__link" to="/MyCloset">Back to My Closet</Link>
             <h1> Bottoms </h1>
 
             <div className="closetItems">
@@ -59,6 +63,7 @@ export const MyOnePiecesList = (props) => {
 
     return (
         <>
+        <Link className="navbar__link" to="/MyCloset">Back to My Closet</Link>
             <h1> One-Pieces </h1>
 
             <div className="closetItems">
@@ -83,6 +88,7 @@ export const MyJacketsList = (props) => {
 
     return (
         <>
+        <Link className="navbar__link" to="/MyCloset">Back to My Closet</Link>
             <h1> Jackets </h1>
 
             <div className="closetItems">
@@ -107,7 +113,9 @@ export const MyShoesList = (props) => {
 
     return (
         <>
+        <Link className="navbar__link" to="/MyCloset">Back to My Closet</Link>
             <h1> Shoes </h1>
+            
 
             <div className="closetItems">
                 {
@@ -131,6 +139,7 @@ export const MyAccessoriesList = (props) => {
 
     return (
         <>
+        <Link className="navbar__link" to="/MyCloset">Back to My Closet</Link>
             <h1> Accessories </h1>
 
             <div className="closetItems">
