@@ -17,6 +17,8 @@ export const OutfitsList = (props) => {
         getClothingItemsOutfits()
     }, [])
 
+    const filteredOutfits = outfits.filter(outfit => outfit.userId === parseInt(localStorage.getItem("closet__user"))) || {}
+
     const createNewOutfitObj = () => {
         addOutfits({
             event: "",
@@ -35,7 +37,7 @@ export const OutfitsList = (props) => {
                     +Outfit
                 </button>
                 {
-                    outfits.map(outfit => {
+                    filteredOutfits.map(outfit => {
                         const relationships = clothingItemOutfits.filter(co => co.outfitId === outfit.id)
                         const findClothingItems = relationships.map(ci => {
                             return closetItems.find(closetItem => closetItem.id === ci.closetItemId)
