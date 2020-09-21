@@ -62,8 +62,8 @@ export const NewSuitcaseForm = (props) => {
         getSuitcaseToSave()
     }, [suitcases, suitcasesOutfits, suitcasesClosetItems])
 
-    const saveSuitcaseWithUpdates = () => {
 
+    const saveSuitcaseWithUpdates = () => {
         updateSuitcase({
             id: suitcase.id,
             image: image,

@@ -35,7 +35,7 @@ export const Suitcase = (props) => {
                 Delete
             </button>
             <button onClick={() => {
-                props.history.push(`/outfits/edit/${props.suitcase.id}`)
+                props.history.push(`/suitcases/edit/${props.suitcase.id}`)
             }}>Edit</button>
         </section>
     )
