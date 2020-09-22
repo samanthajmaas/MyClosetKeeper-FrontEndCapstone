@@ -41,6 +41,7 @@ export const NewClosetItemForm = (props) => {
             const closetItemId = parseInt(props.match.params.closetItemId)
             const selectedClosetItem = closetItems.find(a => a.id === closetItemId) || {}
             setClosetItem(selectedClosetItem)
+            setImage(closetItem.image)
         }
     }
 
@@ -102,9 +103,10 @@ export const NewClosetItemForm = (props) => {
                     />
                     {loading ? (
                         <div> Loading... </div>
-                    ): (
+                    ): editMode ? (
                         <img src={image} style={{width: "100px"}}/>
-                    )}
+
+                    ): (<img src={image} style={{width: "100px"}}/>)}
                     <br></br>
                     <label htmlFor="categoryId">Category: </label>
                     <select name="categoryId" className="form-control"

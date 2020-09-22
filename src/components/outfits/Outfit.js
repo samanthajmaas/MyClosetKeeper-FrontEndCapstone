@@ -11,6 +11,7 @@ export const Outfit = (props) => {
             <div className="outfit__clothingItem">
                 {
                     props.findClothingItems.map(closetItem => {
+                        
                         return (<li>{closetItem.type}</li>)
                     })
 

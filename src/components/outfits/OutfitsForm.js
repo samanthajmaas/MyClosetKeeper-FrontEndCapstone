@@ -35,6 +35,7 @@ export const NewOutfitForm = (props) => {
         const file = await res.json()
         setImage(file.secure_url)
         setLoading(false)
+        console.log(image)
     }
 
     const getOutfitToSave = () => {
@@ -42,9 +43,19 @@ export const NewOutfitForm = (props) => {
         const selectedOutfit = outfits.find(a => a.id === outfitId) || {}
         const matchingRelationships = clothingItemOutfits.map(relationship => relationship.outfitId === outfitId) || {}
         setOutfit(selectedOutfit)
+        setImage(selectedOutfit.image)
         setClothingItemOutfit(matchingRelationships)
     }
 
+    const update = () => {
+        return updateOutfit({
+            id: outfit.id,
+            image: image,
+            event: outfit.event,
+            userId: parseInt(localStorage.getItem("closet__user"))
+        })
+    }
+    
     useEffect(() => {
         getOutfits()
         getClothingItemsOutfits()
@@ -54,15 +65,13 @@ export const NewOutfitForm = (props) => {
         getOutfitToSave()
     }, [outfits, clothingItemOutfits])
 
-    const saveOutfitWithEvent = () => {
+    useEffect(() => {
+        update()
+    }, [image])
 
-        updateOutfit({
-            id: outfit.id,
-            image: image,
-            event: outfit.event,
-            userId: parseInt(localStorage.getItem("closet__user"))
-        })
-            .then(() => props.history.push(`/outfits`))
+
+    const saveOutfitWithEvent = () => {
+        update().then(() => props.history.push(`/outfits`))
     }
 
 
@@ -70,21 +79,36 @@ export const NewOutfitForm = (props) => {
         <>
             <form className="newOutfitForm">
                 <h2 className="newOutfitForm__title">{props.edit ? "Update Outfit" : "Add New Outfit"}</h2>
-                <input className="outfit__image"
-                        type="file"
-                        name="file"
-                        placeholder="Upload an image"
-                        onChange={uploadImage}
-                    />
-                    {loading ? (
+
+                {
+                    loading ? (
                         <div> Loading... </div>
-                    ) : (
-                            <img src={image} style={{ width: "100px" }} />
-                        )}
-                    <br></br>
-                <ClothingItemSelector key={clothingItemOutfit.id} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
+                    ) : props.edit ?
+                            <>
+                                <input className="outfit__image"
+                                    type="file"
+                                    name="file"
+                                    placeholder="Upload an image"
+                                    onChange={uploadImage}
+                                />
+                                <img src={image} style={{ width: "100px" }} />
+                            </>
+
+                            : (
+                                <>
+                                    <input className="outfit__image"
+                                        type="file"
+                                        name="file"
+                                        placeholder="Upload an image"
+                                        onChange={uploadImage}
+                                    />
+                                    <img src={image} style={{ width: "100px" }} />
+                                </>)
+                }
+                <br></br>
+                <ClothingItemSelector key={clothingItemOutfit.id} outfit={outfit} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
                 <fieldset>
-                    
+
                     <div className="form-group">
                         <label htmlFor="event">Event: </label>
                         <textarea type="text" name="event" required autoFocus className="form-control"
