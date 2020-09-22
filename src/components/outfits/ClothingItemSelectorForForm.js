@@ -88,7 +88,7 @@ export const ClothingItemSelector = (props) => {
             <div>
                 {/* We are mapping over the array of selected closet items and then for each one we are passing through the ClothingItemSelected function to have it render to the DOM */}
                 {selectedClosetItems.map(selected => {
-                    return <ClothingItemSelected key={selected.id} selected={selected} clothingItemOutfit ={clothingItemOutfit} {...props} />
+                    return <ClothingItemSelected key={selected.id} selected={selected} outfit={props.outfit} clothingItemOutfit ={clothingItemOutfit} {...props} />
                 })}
             </div>
 
