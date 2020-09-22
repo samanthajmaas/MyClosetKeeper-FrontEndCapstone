@@ -77,6 +77,7 @@ export const NewOutfitForm = (props) => {
 
     return (
         <>
+        
             <form className="newOutfitForm">
                 <h2 className="newOutfitForm__title">{props.edit ? "Update Outfit" : "Add New Outfit"}</h2>
 

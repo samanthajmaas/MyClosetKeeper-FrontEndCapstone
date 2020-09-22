@@ -1,23 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
 
-.login--header{
+#root{
+    display: flex;
+}
+
+.login--header{ 
+    position: absolute;
+    top: 7%;
     font-family: 'Euphoria Script', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 64px;
-    line-height: 75px;
+    font-style: bold;
+    font-weight: 65px;
+    font-size: 68px;
+    line-height: 80px;
     color: #C6AD8F;
+    background:#EFE8DF;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
 }
 
 .login--signIn{
+    position: absolute;
+    right: 41%;
     width: 97px;
     height: 20px;
-    font-family: Lora;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
+    font-family: 'Lora', serif;
+    font-style: bold;
+    font-weight: 45px;
+    font-size: 40px;
     line-height: 46px;
-    color: #425664;
+    color: #C6AD8F;
 }
 
 fieldset {
@@ -27,19 +38,29 @@ fieldset {
     border: 0;
 }
 
-.form--login {
-    position: relative;
+.bottom--login {
+    position: absolute;
+    left: 1.75%;
+    top: 36%;
     width: 400px;
-    height: 207px;
-    justify-content: center;
-    background: linear-gradient(180deg, #C6AD8F 0%, rgba(255, 255, 255, 255) 100%);
+    height: 320px;
+    background:#EFE8DF;
+    backdrop-filter: blur(4px);
     border-radius: 10px;
     align-items: center;
 }
 
-.form--login > fieldset > input[type="email"],
+.form--login > fieldset > input[type="email"]{
+    width: 20em;
+    position: absolute;
+    left: 7%;
+    top: 27%;
+}
 .form--login > fieldset > input[type="password"] {
     width: 20em;
+    position: absolute;
+    left: 7%;
+    top: 45%;
 }
 
 .label--login {
@@ -70,20 +91,23 @@ fieldset {
     min-height: 5rem;
 }
 
-link{
-    position: relative;           
+.linkToRegiser{
+    position: absolute;
+    bottom: 25%;
+    left: 30%;
+    font-family: 'Lora', serif;
 }
 
 .submitButton{
-width: 76px;
-height: 32px;
-left: 150px;
-top: 525px;
-font-family: Lora;
-background: rgba(255, 255, 255, 0.78);
-border: 3px solid #C6AD8F;
-box-sizing: border-box;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 15px;
-justify-content: center;
+    position: absolute;
+    width: 76px;
+    height: 32px;
+    left: 40%;
+    top: 68%;
+    font-family: 'Lora', serif;
+    background: rgba(255, 255, 255, 0.78);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }
