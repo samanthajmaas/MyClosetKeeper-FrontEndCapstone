@@ -15,32 +15,13 @@ export const NewSuitcaseForm = (props) => {
     const [closetItem, setClosetItem] = useState({})
     const [suitcaseOutfit, setSuitcaseOutfit] = useState({})
     const [suitcaseClosetItem, setSuitcaseClosetItem] = useState({})
-    const [image, setImage] = useState('')
-    const [loading, setLoading] = useState(false)
-
+ 
     const handleControlledInputChange = (broswerEvent) => {
         const newSuitcase = Object.assign({}, suitcase)
         newSuitcase[broswerEvent.target.name] = broswerEvent.target.value
         setSuitcase(newSuitcase)
     }
 
-    const uploadImage = async e => {
-        const files = e.target.files
-        const data = new FormData()
-        data.append('file', files[0])
-        data.append('upload_preset', 'myClosetKeeper')
-        setLoading(true)
-        const res = await fetch(
-            `	https://api.cloudinary.com/v1_1/dkzwttxez/image/upload`,
-            {
-                method: "POST",
-                body: data
-            }
-        )
-        const file = await res.json()
-        setImage(file.secure_url)
-        setLoading(false)
-    }
 
     const getSuitcaseToSave = () => {
         const suitcaseId = parseInt(props.match.params.suitcaseId)
@@ -66,9 +47,7 @@ export const NewSuitcaseForm = (props) => {
     const saveSuitcaseWithUpdates = () => {
         updateSuitcase({
             id: suitcase.id,
-            image: image,
             tripName: suitcase.tripName,
-            zipCode: suitcase.zipCode,
             description: suitcase.description,
             userId: parseInt(localStorage.getItem("closet__user"))
         })
@@ -80,17 +59,6 @@ export const NewSuitcaseForm = (props) => {
         <>
             <form className="newSuitcaseForm">
                 <h2 className="newSuitcaseForm__title">{props.edit ? "Update Suitcase" : "Add New Suitcase"}</h2>
-                <input className="trip__image"
-                        type="file"
-                        name="file"
-                        placeholder="Upload an image"
-                        onChange={uploadImage}
-                    />
-                    {loading ? (
-                        <div> Loading... </div>
-                    ) : (
-                            <img src={image} style={{ width: "100px" }} />
-                        )}
                     <br></br>
                 <OutfitSelector key={suitcaseOutfit.id} outfit={outfit} setOutfit={setOutfit} {...props} />
                 <ClosetItemSelector key={suitcaseClosetItem.id} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
@@ -100,16 +68,6 @@ export const NewSuitcaseForm = (props) => {
                         <input type="text" name="tripName" required autoFocus className="form-control"
                             proptype="varchar"
                             defaultValue={suitcase.tripName}
-                            onChange={handleControlledInputChange}
-                        ></input>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="zipCode">Zip Code for Location</label>
-                        <input type="text" name="zipCode" required autoFocus className="form-control"
-                            proptype="varchar"
-                            defaultValue={suitcase.zipCode}
                             onChange={handleControlledInputChange}
                         ></input>
                     </div>
