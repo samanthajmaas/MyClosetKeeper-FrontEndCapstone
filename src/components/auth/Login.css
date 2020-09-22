@@ -50,6 +50,7 @@ fieldset {
     align-items: center;
 }
 
+
 .form--login > fieldset > input[type="email"]{
     width: 20em;
     position: absolute;
@@ -105,9 +106,52 @@ fieldset {
     left: 40%;
     top: 68%;
     font-family: 'Lora', serif;
+    font-size: 1rem;
     background: rgba(255, 255, 255, 0.78);
     border: 3px solid #C6AD8F;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+}
+
+.register--Header{
+    position: absolute;
+    left: 05%;
+    top: 7%;
+    font-family: 'Lora', serif;
+    font-style: bold;
+    font-weight: 65px;
+    font-size: 25px;
+    line-height: 30px;
+    color: #C6AD8F;
+    background:#EFE8DF;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+}
+
+.signInAfterRegister{
+    position: absolute;
+    width: 76px;
+    height: 32px;
+    left: 40%;
+    top: 93%;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.78);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.form--Register{
+    position: absolute;
+    left: 1.75%;
+    top: 15%;
+    width: 400px;
+    height: 560px;
+    background:#EFE8DF;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    align-items: center;
 }

@@ -46,15 +46,15 @@ export const Register = (props) => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main>
 
             <dialog className="dialog dialog--password" ref={passwordDialog}>
                 <div>Passwords do not match</div>
                 <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
             </dialog>
-
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register to use My Closet Keeper</h1>
+            <h1 className="register--Header">Please Register an account</h1>
+            <form className="form--Register" onSubmit={handleRegister}>
+                
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text"
@@ -96,7 +96,7 @@ export const Register = (props) => {
                         required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit">
+                    <button type="submit" className="signInAfterRegister">
                         Sign in
                     </button>
                 </fieldset>
