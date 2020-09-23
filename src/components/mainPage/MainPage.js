@@ -8,7 +8,6 @@ export const MainPageLinks = (props) => {
     return (
         <>
         <h2 className="mainPage__welcome">Welcome  </h2>
-        <h2 className="mainPage__userName">User</h2>
         <section className="mainPage">
             <ButtonToggle className="mainPageButton" ><Link className="mainPage__link" to="/myCloset">My Closet</Link></ButtonToggle >{' '}
             <ButtonToggle className="mainPageButton"> <Link className="mainPage__link" to="/outfits">Outfits</Link> </ButtonToggle>{' '}
