@@ -1,19 +1,19 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { ButtonToggle } from "reactstrap"
+import "./MainPage.css"
 
 
 export const MainPageLinks = (props) => {
     return (
-        <ul className="navbar">
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/myCloset">My Closet</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/outfits">Outfits</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/suitcases">Suitcase</Link>
-            </li>
-        </ul>
+        <>
+        <h2 className="mainPage__welcome">Welcome  </h2>
+        <h2 className="mainPage__userName">User</h2>
+        <section className="mainPage">
+            <ButtonToggle className="mainPageButton" ><Link className="mainPage__link" to="/myCloset">My Closet</Link></ButtonToggle >{' '}
+            <ButtonToggle className="mainPageButton"> <Link className="mainPage__link" to="/outfits">Outfits</Link> </ButtonToggle>{' '}
+            <ButtonToggle className="mainPageButton"> <Link className="mainPage__link" to="/suitcases">Suitcase</Link> </ButtonToggle>{' '}
+        </section>
+        </>
     )
 }

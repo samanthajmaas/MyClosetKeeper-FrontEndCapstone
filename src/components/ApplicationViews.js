@@ -15,6 +15,8 @@ import { SuitcasesOutfitsProvider } from "./suitcase/SuitcasesOutfitsProvider"
 import { SuitcasesClosetItemsProvider } from "./suitcase/SuitcasesClosetItemsProvider"
 import { SuitcasesList } from "./suitcase/SuitcasesList"
 import { NewSuitcaseForm } from "./suitcase/NewSuitcaseForm"
+import HomeIcon from '@material-ui/icons/Home';
+import "./MyClosetKeeper.css"
 // import { WeatherProvider } from "./weather/WeatherProvider"
 
 
@@ -26,7 +28,7 @@ export const ApplicationViews = (props) => {
 
             {/* This is what makes it so the main menu is not a nav bar but it is a menu that leads you to other pages */}
             <Route exact path="/" render={props => <MainPageLinks {...props} />} />
-            <Link className="navbar__link" to="/">Home</Link>
+            <Link className="navbar__link" to="/"><HomeIcon style={{ fontSize: 45 }}  className="homeIcon"/></Link>
 
             {/* Renders my closet list. Has all different functions depending on the category due to the different routes.*/}
             <MyClosetProvider>
@@ -110,7 +112,7 @@ export const ApplicationViews = (props) => {
 
 
             {/* Used to logout current user and should always be at the bottom of the page */}
-            <Link className="navbar__link" to="/logout">Logout</Link>
+            <Link className="logout" to="/logout">Logout</Link>
             <Route path="/logout" render={
                 (props) => {
                     localStorage.removeItem("closet__user")

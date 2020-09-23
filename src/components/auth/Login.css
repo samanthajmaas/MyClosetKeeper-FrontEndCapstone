@@ -71,7 +71,7 @@ fieldset {
 
 .form-control {
     display: block;
-    width: 94%;
+    width: 350px;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -94,8 +94,8 @@ fieldset {
 
 .linkToRegiser{
     position: absolute;
-    bottom: 25%;
-    left: 30%;
+    left: 115px;
+    top: 275px;
     font-family: 'Lora', serif;
 }
 
@@ -103,8 +103,8 @@ fieldset {
     position: absolute;
     width: 76px;
     height: 32px;
-    left: 40%;
-    top: 68%;
+    left: 160px;
+    top: 225px;
     font-family: 'Lora', serif;
     font-size: 1rem;
     background: rgba(255, 255, 255, 0.78);
@@ -116,8 +116,8 @@ fieldset {
 
 .register--Header{
     position: absolute;
-    left: 05%;
-    top: 7%;
+    left: 25px;
+    top: 30px;
     font-family: 'Lora', serif;
     font-style: bold;
     font-weight: 65px;
@@ -133,8 +133,8 @@ fieldset {
     position: absolute;
     width: 76px;
     height: 32px;
-    left: 40%;
-    top: 93%;
+    left: 160px;
+    top: 520px;
     font-family: 'Lora', serif;
     font-size: 1rem;
     background: rgba(255, 255, 255, 0.78);
@@ -146,8 +146,8 @@ fieldset {
 
 .form--Register{
     position: absolute;
-    left: 1.75%;
-    top: 15%;
+    left: 7px;
+    top: 150px;
     width: 400px;
     height: 560px;
     background:#EFE8DF;

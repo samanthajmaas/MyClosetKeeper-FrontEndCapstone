@@ -33,7 +33,7 @@ export const Login = props => {
     return (
         <main className="container--login">
             <h1 className="login--header">My Closet Keeper</h1>
-            
+
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
@@ -45,7 +45,7 @@ export const Login = props => {
             <section className="bottom--login">
                 <h2 className="login--signIn">Login</h2>
                 <form className="form--login" onSubmit={handleLogin}>
-                    
+
                     <fieldset>
                         <input ref={email} type="email"
                             id="email"
@@ -65,12 +65,12 @@ export const Login = props => {
                             Sign in
                         </button>
                     </fieldset>
+                    <br>
+                    </br>
+                    <section className="link--register">
+                        <Link to="/register" className="linkToRegiser">Don't have an account?</Link>
+                    </section>
                 </form>
-            </section>
-            <br>
-            </br>
-            <section className="link--register">
-                <Link to="/register" className="linkToRegiser">Don't have an account?</Link>
             </section>
         </main>
     )
