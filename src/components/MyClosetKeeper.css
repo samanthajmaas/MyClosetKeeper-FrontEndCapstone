@@ -13,23 +13,21 @@ h6 {
 }
 
 .logout{
-  position: fixed;
+  position: absolute;
   right: 165px;
-  bottom: 30px;
-  color: #425664;
+  bottom: 0px;
+  color: #2B3841;
   font-family: 'Lora', serif;
   font-size: 26px;
-  background:#EFE8DF;
-  backdrop-filter: blur(4px);
-  border-radius: 10px;
+  font-weight: 100px;
+  font-style: bold;
   text-decoration: none;
 }
 
 .homeIcon{
-  position: fixed;
+  position: absolute;
   top: 5px;
   left: 5px;
   color: #425664;
 }
 
-/* color="disabled" */

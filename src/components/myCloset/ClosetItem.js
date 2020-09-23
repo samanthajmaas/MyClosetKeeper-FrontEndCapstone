@@ -4,6 +4,8 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, Button
   } from 'reactstrap';
+  import EditIcon from '@material-ui/icons/Edit';
+  import DeleteIcon from '@material-ui/icons/Delete';
 import "./MyCloset.css"
 
 export const ClothingItem = (props) => {
@@ -13,13 +15,13 @@ export const ClothingItem = (props) => {
     <section className = "item">
         <Card className="closetItemCard">
             <CardBody className="closetItemCardBody">
-                <CardImg src={props.closetItem.image} style={{width: "100px"}}/>
-                <CardTitle className="item__type">{props.closetItem.type}</CardTitle>
-                    <div className="item__color">{props.closetItem.color}</div>
-                        <CardText className="item__size">{props.closetItem.size}</CardText>
-                        <CardText className="item__material">{props.closetItem.material}</CardText>
-                        <CardText className="item__purchased">{props.closetItem.placeOfPurchase}</CardText>
-                        <Button onClick={
+                <CardImg src={props.closetItem.image} style={{width: "175px"}}/>
+                <CardTitle className="item__type"> {props.closetItem.type}</CardTitle>
+                    <div className="item__color">Color: {props.closetItem.color}</div>
+                        <CardText className="item__size">Size: {props.closetItem.size}</CardText>
+                        <CardText className="item__material">Material: {props.closetItem.material}</CardText>
+                        <CardText className="item__purchased">Purchased at: {props.closetItem.placeOfPurchase}</CardText>
+                        <Button className="deleteIconButton" onClick={
                             () => {
                                 deleteClosetItem(props.closetItem.id)
                                     .then(() => {
@@ -27,12 +29,12 @@ export const ClothingItem = (props) => {
                                     })
                             }
                         }>
-                            Delete
+                            <DeleteIcon className="deleteIcon" />
                         </Button>
-                        <Button onClick={() => {
+                        <Button className="editIconButton" onClick={() => {
                             props.history.push(`/myCloset/edit/${props.closetItem.id}`)
                         }}>
-                            Edit
+                            <EditIcon className="editIcon"/>
                         </Button>
             </CardBody>
         </Card>
