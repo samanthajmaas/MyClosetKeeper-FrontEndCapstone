@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import { MyClosetContext } from "./MyClosetProvider"
 import { CategoriesContext } from "./CategoriesProvider"
+import "./MyCloset.css"
 
 export const NewClosetItemForm = (props) => {
     const { addClosetItems, closetItems, updateClosetItem, getClosetItems } = useContext(MyClosetContext)

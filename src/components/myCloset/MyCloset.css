@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
+
+
+.exitIcon{
+    position: fixed;
+    top: 5pxpx;
+    right: 5px;
+    color: #425664;
+}
+
+.myClosetHeader{
+    position: absolute;
+    left: 97px;
+    font-family: 'Euphoria Script', cursive;
+    font-style: bold;
+    font-weight: 65px;
+    font-size: 68px;
+    line-height: 80px;
+    color: #425664;
+    background:#EFE8DF;
+    backdrop-filter: blur(300px);
+    border-radius: 10px;
+}
+
+.myClosetMenu{
+    position: absolute;
+    top: 230px;
+    left: 7px;
+}
+
+.addClosetItemButton{
+    position: absolute;
+    bottom: 540px;
+    right: 171px;
+    width: 75px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.myClosetCategoryButton{
+    width: 200px;
+    height: 123px;
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.myClosetMenu__link{
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.closetItemsList{
+    margin-bottom: 100px;
+}
+
+.categoryTitle{
+    display: flex;
+    justify-content: center;
+    font-style: bold;
+    font-weight: 65px;
+    font-size: 45px;
+    color: #425664;
+}
+
+.item{
+    float: left;
+    width: 40%;
+    padding: 0 10px;
+    margin: 5px;
+}
+
+.closetItemCard{
+    position: relative ;
+    width: 190px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    text-align: center;  
+}
+
+.closetItemCardBody{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}

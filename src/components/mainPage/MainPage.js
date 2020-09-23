@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { ButtonToggle } from "reactstrap"
 import "./MainPage.css"
 
-
 export const MainPageLinks = (props) => {
     return (
         <>

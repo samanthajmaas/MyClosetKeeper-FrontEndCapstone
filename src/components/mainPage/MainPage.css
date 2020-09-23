@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
 
-
 .mainPage{
     position: absolute;
-    top: 250px;
+    top: 230px;
     left: 7px;
 }
 
 .mainPage__welcome{
     position: absolute;
-    top: 60px;
+    top: 50px;
     left: 115px;
     font-family: 'Euphoria Script', cursive;
     font-style: bold;
@@ -20,7 +19,6 @@
     background:#EFE8DF;
     backdrop-filter: blur(300px);
     border-radius: 10px;
-    
 }
 
 .mainPageButton{
@@ -39,4 +37,4 @@
     font-size: 26px;
     border-radius: 10px;
     text-decoration: none;
-    }
+}

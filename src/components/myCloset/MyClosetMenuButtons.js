@@ -1,33 +1,35 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import { ButtonToggle } from "reactstrap"
+import "./MyCloset.css"
 
 export const MyClosetMenuButtons = ({history}) => {
     return (
         <>
-        <h2>My Closet</h2>
-        <button onClick={() => history.push("/myCloset/create")}>
+        <h2 className="myClosetHeader">My Closet</h2>
+        <button className="addClosetItemButton" onClick={() => history.push("/myCloset/create")}>
                 +Item
         </button>
-        <ul className="myClosetMenu">
-            <li className="myClosetMenu__item">
+        <section className="myClosetMenu">
+            <ButtonToggle className="myClosetCategoryButton" >
                 <Link className="myClosetMenu__link" to="/myCloset/tops">Tops</Link>
-            </li>
-            <li className="myClosetMenu__item">
+            </ButtonToggle>
+            <ButtonToggle className="myClosetCategoryButton" >
                 <Link className="myClosetMenu__link" to="/myCloset/bottoms">Bottoms</Link>
-            </li>
-            <li className="myClosetMenu__item">
+            </ButtonToggle>
+            <ButtonToggle className="myClosetCategoryButton" >
                 <Link className="myClosetMenu__link" to="/myCloset/onePieces">One Pieces</Link>
-            </li>
-            <li className="myClosetMenu__item">
+            </ButtonToggle>
+            <ButtonToggle className="myClosetCategoryButton" >
                 <Link className="myClosetMenu__link" to="/myCloset/jackets">Jackets</Link>
-            </li>
-            <li className="myClosetMenu__item">
+            </ButtonToggle>
+            <ButtonToggle className="myClosetCategoryButton" >
                 <Link className="myClosetMenu__link" to="/myCloset/shoes">Shoes</Link>
-            </li>
-            <li className="myClosetMenu__item">
+            </ButtonToggle>
+            <ButtonToggle className="myClosetCategoryButton" >
                 <Link className="myClosetMenu__link" to="/myCloset/accessorys">Accessories</Link>
-            </li>
-        </ul>
+            </ButtonToggle>
+        </section>
         </>
     )
 }
