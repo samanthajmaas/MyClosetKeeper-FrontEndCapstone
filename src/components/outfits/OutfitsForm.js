@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react"
 import { OutfitsContext } from "./OutfitsProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { ClothingItemSelector } from "./ClothingItemSelectorForForm"
+import "./Outfit.css"
 
 export const NewOutfitForm = (props) => {
     const { outfits, updateOutfit, getOutfits } = useContext(OutfitsContext)

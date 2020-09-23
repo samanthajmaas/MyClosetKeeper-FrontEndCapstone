@@ -17,7 +17,6 @@
     font-size: 68px;
     line-height: 80px;
     color: #2B3841
-    
 }
 
 .myClosetMenu{
@@ -135,6 +134,7 @@
     height: 800px;
     border-radius: 10px;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .newClothingItemForm__title{

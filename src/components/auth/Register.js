@@ -1,5 +1,7 @@
 import React, { useRef } from "react"
+import { Link } from "react-router-dom"
 import "./Login.css"
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 export const Register = (props) => {
     const firstName = useRef()
@@ -52,6 +54,7 @@ export const Register = (props) => {
                 <div>Passwords do not match</div>
                 <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
             </dialog>
+            <Link className="navbar__link" to="/login"><ExitToAppIcon style={{ fontSize: 45 }} className="exitIcon" /></Link>
             <h1 className="register--Header">Please Register an account</h1>
             <form className="form--Register" onSubmit={handleRegister}>
                 

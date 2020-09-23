@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { OutfitsContext } from "./OutfitsProvider"
+import "./Outfit.css"
 
 export const Outfit = (props) => {
     const { deleteOutfit } = useContext(OutfitsContext)

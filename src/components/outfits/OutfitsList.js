@@ -3,6 +3,7 @@ import { OutfitsContext } from "./OutfitsProvider"
 import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { Outfit } from "./Outfit"
+import "./Outfit.css"
 
 
 export const OutfitsList = (props) => {
@@ -30,7 +31,7 @@ export const OutfitsList = (props) => {
     return (
         <>
         <div className="outfits">
-                <h2>Outfits</h2>
+                <h2 className="outfitsHeader">Outfits</h2>
                 <button onClick={() => {
                     createNewOutfitObj()
                 }}>

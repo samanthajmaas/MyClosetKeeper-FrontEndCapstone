@@ -5,6 +5,7 @@ import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { ClothingItemSelected } from "./ClothingItemsSelected"
 import { OutfitsContext } from "./OutfitsProvider"
+import "./Outfit.css"
 
 export const ClothingItemSelector = (props) => {
     const { clothingItemOutfits, getClothingItemsOutfits, addClothingItemsOutfits } = useContext(ClothingItemsOutfitsContext)
