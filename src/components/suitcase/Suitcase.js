@@ -91,6 +91,7 @@ export const Suitcase = (props) => {
                             <h3 className="suitcase__tripName">{props.suitcase.tripName}</h3>
                             <div className="suitcasePictures">
                                 <div className="suitcase__outfits">
+                                    <div>Outfits</div>
                                     {
                                         props.findOutfits.map(outfit => {
                                             return (
@@ -104,6 +105,7 @@ export const Suitcase = (props) => {
                                     }
                                 </div>
                                 <div className="suitcase__closetItems">
+                                <div>Individual Items</div>
                                     {
                                         props.findClosetItems.map(closetItem => {
                                             return (

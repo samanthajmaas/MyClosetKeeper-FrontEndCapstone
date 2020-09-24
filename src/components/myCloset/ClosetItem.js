@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { MyClosetContext } from "./MyClosetProvider"
 import {
     Card, CardImg, CardText, CardBody,
@@ -7,10 +7,11 @@ import {
   import EditIcon from '@material-ui/icons/Edit';
   import DeleteIcon from '@material-ui/icons/Delete';
 import "./MyCloset.css"
+import { CategoriesContext } from "./CategoriesProvider";
 
 export const ClothingItem = (props) => {
     const {deleteClosetItem} = useContext(MyClosetContext)
-    
+
     return (
     <section className = "item">
         <Card className="closetItemCard">
@@ -25,7 +26,19 @@ export const ClothingItem = (props) => {
                             () => {
                                 deleteClosetItem(props.closetItem.id)
                                     .then(() => {
-                                        props.history.push(`/myCloset`)
+                                        if(props.closetItem.categoryId === 1){
+                                        props.history.push(`/myCloset/tops`)
+                                        } else if(props.closetItem.categoryId=== 2){
+                                        props.history.push(`/myCloset/bottoms`)
+                                        }else if(props.closetItem.categoryId=== 3){
+                                        props.history.push(`/myCloset/onePieces`)
+                                        }else if(props.closetItem.categoryId=== 4){
+                                        props.history.push(`/myCloset/jackets`)
+                                        }else if(props.closetItem.categoryId=== 5){
+                                        props.history.push(`/myCloset/shoes`)
+                                        }else if(props.closetItem.categoryId=== 6){
+                                        props.history.push(`/myCloset/accessorys`)
+                                        }
                                     })
                             }
                         }>

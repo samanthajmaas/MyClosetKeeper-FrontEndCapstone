@@ -12,10 +12,11 @@ export const OutfitSelected = (props) => {
                 {props.selected.event}
             </div>
 
-            <button className="deleteRelationships" onClick={() => {
+            <button className="deleteOutfitRelationships" onClick={() => {
                 deleteSuitcasesOutfits(props.selected.relationshipId)
             }}>x
             </button>
+            <br></br>
         </>
     )
 }

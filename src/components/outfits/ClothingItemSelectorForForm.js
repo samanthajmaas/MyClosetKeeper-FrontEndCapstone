@@ -5,6 +5,7 @@ import { ClothingItemSelected } from "./ClothingItemsSelected"
 import { OutfitsContext } from "./OutfitsProvider"
 import "./Outfit.css"
 
+
 export const ClothingItemSelector = (props) => {
     const { clothingItemOutfits, getClothingItemsOutfits, addClothingItemsOutfits } = useContext(ClothingItemsOutfitsContext)
     const { closetItems, getClosetItems } = useContext(MyClosetContext)
@@ -12,6 +13,9 @@ export const ClothingItemSelector = (props) => {
 
     const [clothingItemOutfit, setClothingItemOutfit] = useState({})
     const [selectedClosetItems, setSelectedClosetItems] = useState([])
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
 
 
     const handleControlledInputChange = (broswerEvent) => {
@@ -55,24 +59,29 @@ export const ClothingItemSelector = (props) => {
             closetItemId: closetItemId,
             outfitId: getOutfitId.id
         })
+
     }
 
     return (
         <>
             <fieldset>
                 <div className="form-group">
-                    <select name="closetItemId" className="form-control outfitClosetItemSelect"
-                        proptype="int"
+                    <select data-type="mini" name="closetItemId" className="form-control outfitClosetItemSelect"
                         value={clothingItemOutfit.closetItemId}
                         
                         onChange={handleControlledInputChange}>
-                        <option value="0">Select a clothing item...</option>
-                        {closetItems.map(closetItem => (
-                            <option style={{width:"auto", height:"100px"}} key={closetItem.id} value={closetItem.id}>
-                                {closetItem.type}
-                            </option>
-                        ))
-                        }
+                            <optgroup className="options">
+                                <option className="options" value="0">Select a clothing item...</option>
+                        
+                                {
+                                closetItems.map(closetItem => (
+                                    
+                                    <option className="options"  key={closetItem.id} value={closetItem.id}>
+                                        {closetItem.type}
+                                    </option>
+                                ))
+                                }
+                        </optgroup>
                     </select>
                 </div>
             </fieldset>

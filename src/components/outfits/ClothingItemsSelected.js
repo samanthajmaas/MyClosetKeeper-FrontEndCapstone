@@ -13,12 +13,11 @@ export const ClothingItemSelected = (props) => {
                     {props.selected.type}
                 </div>
             </section>
-        
-            <button className=" deleteOutfitRelationshipsButton"onClick={() => {
+            <button className=" deleteOutfitRelationshipsButton" onClick={() => {
                 deleteClothingItemsOutfits(props.selected.relationshipId)
             }}>x
             </button>
-            <br></br>
+           <br></br>
         </>
     )
 }

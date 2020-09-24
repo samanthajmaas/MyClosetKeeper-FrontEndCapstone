@@ -94,7 +94,6 @@
     font-size: 19px;
 }
 
-
 .deleteRelationships{
     position: relative;
     top: -163px;
@@ -106,7 +105,23 @@
     border-radius: 5px;
 }
 
-.listOfSelectedItems{
+.deleteOutfitRelationships{
+    position: relative;
+    top: -163px;
+    left: 74px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    background:#EFE8DF;
+    border-radius: 5px;
+}
+
+.outfit__clothingItemSelected{
+    background:#EFE8DF;
+    width: 160px;
+}
+
+.listOfSelectedClosetItems{
     position: relative;
     left: 149px;
     font-style: bold;
@@ -114,9 +129,4 @@
     font-size: 19px;
     color: #2B3841;
     font-family: 'Lora', serif;
-}
-
-.outfit__clothingItemSelected{
-    background:#EFE8DF;
-    width: 160px;
 }
