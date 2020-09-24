@@ -9,8 +9,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position-x: right;
-    position: relative;
     min-height: 100vh;
+    position: relative;
 }
 
 code {

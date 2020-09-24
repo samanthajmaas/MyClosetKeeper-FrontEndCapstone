@@ -4,6 +4,7 @@ import { OutfitSelector } from "./OutfitSelectorForSuitcaseForm"
 import { SuitcaseContext } from "./SuitcaseProvider"
 import { SuitcasesClosetItemsContext } from "./SuitcasesClosetItemsProvider"
 import { SuitcasesOutfitsContext } from "./SuitcasesOutfitsProvider"
+import "./Suitcase.css"
 
 export const NewSuitcaseForm = (props) => {
     const { suitcases, updateSuitcase, getSuitcases } = useContext(SuitcaseContext)

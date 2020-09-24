@@ -3,6 +3,7 @@ import { OutfitsContext } from "../outfits/OutfitsProvider"
 import { OutfitSelected } from "./OutfitSelected"
 import { SuitcaseContext } from "./SuitcaseProvider"
 import { SuitcasesOutfitsContext } from "./SuitcasesOutfitsProvider"
+import "./Suitcase.css"
 
 export const OutfitSelector = (props) => {
     const { suitcasesOutfits, getSuitcasesOutfits, addSuitcasesOutfits } = useContext(SuitcasesOutfitsContext)

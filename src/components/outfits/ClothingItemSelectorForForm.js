@@ -12,13 +12,11 @@ export const ClothingItemSelector = (props) => {
     const { closetItems, getClosetItems } = useContext(MyClosetContext)
     const { outfits, getOutfits } = useContext(OutfitsContext)
 
-
     const [clothingItemOutfit, setClothingItemOutfit] = useState({})
     const [selectedClosetItems, setSelectedClosetItems] = useState([])
-    const [dropdownOpen, setOpen] = useState(false);
 
-    const toggle = () => setOpen(!dropdownOpen);
-
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const toggle = () => setDropdownOpen(prevState => !prevState);
 
     const handleControlledInputChange = (broswerEvent) => {
         const selectedClothingItem = Object.assign({}, props.closetItem)
@@ -64,25 +62,22 @@ export const ClothingItemSelector = (props) => {
 
     return (
         <>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle caret>
-                    Add a Clothing Item:
-                </DropdownToggle>
-                <DropdownMenu name="closetItemId" className="form-control"
-                proptype="int"
-                value={clothingItemOutfit.closetItemId}
-                onChange={handleControlledInputChange}>
-                    {closetItems.map(closetItem => (
-                        <DropdownItem
-                            key={closetItem.id} value={closetItem.id}
-                        >
-                            {closetItem.type}
-                        </DropdownItem>
-                    ))
-                    }
-                </DropdownMenu>
-            </Dropdown>
-
+            <fieldset>
+                <div className="form-group">
+                    <select name="closetItemId" className="form-control outfitClosetItemSelect"
+                        proptype="int"
+                        value={clothingItemOutfit.closetItemId}
+                        onChange={handleControlledInputChange}>
+                        <option value="0">Select a clothing item...</option>
+                        {closetItems.map(closetItem => (
+                            <option key={closetItem.id} value={closetItem.id}>
+                                {closetItem.type}
+                            </option>
+                        ))
+                        }
+                    </select>
+                </div>
+            </fieldset>
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
@@ -91,15 +86,12 @@ export const ClothingItemSelector = (props) => {
                 className="btn btn-primary">
                 {"+"}
             </button>
-
-
             <div>
                 {/* We are mapping over the array of selected closet items and then for each one we are passing through the ClothingItemSelected function to have it render to the DOM */}
                 {selectedClosetItems.map(selected => {
                     return <ClothingItemSelected key={selected.id} selected={selected} outfit={props.outfit} clothingItemOutfit={clothingItemOutfit} {...props} />
                 })}
             </div>
-
         </>
     )
 }

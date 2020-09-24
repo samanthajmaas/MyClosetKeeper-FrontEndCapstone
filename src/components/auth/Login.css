@@ -7,6 +7,7 @@
 .login--header{ 
     position: absolute;
     top: 7%;
+    left: 15px;
     font-family: 'Euphoria Script', cursive;
     font-style: bold;
     font-weight: 65px;
@@ -121,8 +122,8 @@ fieldset {
 
 .register--Header{
     position: absolute;
-    left: 25px;
-    top: 30px;
+    left: 43px;
+    top: 45px;
     font-family: 'Lora', serif;
     font-style: bold;
     font-weight: 65px;

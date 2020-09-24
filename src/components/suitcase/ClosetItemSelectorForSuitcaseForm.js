@@ -3,6 +3,7 @@ import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { ClosetItemSelected } from "./ClosetItemSelected"
 import { SuitcaseContext } from "./SuitcaseProvider"
 import { SuitcasesClosetItemsContext } from "./SuitcasesClosetItemsProvider"
+import "./Suitcase.css"
 
 export const ClosetItemSelector = (props) => {
     const{suitcasesClosetItems, getSuitcasesClosetItems, addSuitcasesClosetItems} = useContext(SuitcasesClosetItemsContext)

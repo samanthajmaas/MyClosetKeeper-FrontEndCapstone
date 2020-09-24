@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { OutfitsContext } from "../outfits/OutfitsProvider"
 import { Suitcase } from "./Suitcase"
 import { SuitcaseContext } from "./SuitcaseProvider"
 import { SuitcasesClosetItemsContext } from "./SuitcasesClosetItemsProvider"
 import { SuitcasesOutfitsContext } from "./SuitcasesOutfitsProvider"
+import "./Suitcase.css"
 
 
 
@@ -14,6 +15,9 @@ export const SuitcasesList = (props) => {
     const { closetItems, getClosetItems } = useContext(MyClosetContext)
     const {suitcasesOutfits, getSuitcasesOutfits} = useContext(SuitcasesOutfitsContext)
     const {suitcasesClosetItems, getSuitcasesClosetItems} = useContext(SuitcasesClosetItemsContext)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
     
     useEffect(() => {
         getSuitcases()
@@ -35,9 +39,9 @@ export const SuitcasesList = (props) => {
 
     return (
         <>
-        <div className="suitcases">
-                <h2>Suitcases</h2>
-                <button onClick={() => {
+        <section className="suitcases">
+                <h2 className="suitcasesHeading">Suitcases</h2>
+                <button className="addSuitcaseButton" onClick={() => {
                     createNewSuitcasesObj()
                 }}>
                     +Suitcase
@@ -58,7 +62,7 @@ export const SuitcasesList = (props) => {
                 })
             }
 
-            </div>
+            </section>
         </>
     )
 }

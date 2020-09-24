@@ -3,6 +3,7 @@ import { OutfitsContext } from "./OutfitsProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { ClothingItemSelector } from "./ClothingItemSelectorForForm"
 import "./Outfit.css"
+import { Collapse, Button} from 'reactstrap';
 
 export const NewOutfitForm = (props) => {
     const { outfits, updateOutfit, getOutfits } = useContext(OutfitsContext)
@@ -13,6 +14,9 @@ export const NewOutfitForm = (props) => {
     const [clothingItemOutfit, setClothingItemOutfit] = useState({})
     const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
 
     const handleControlledInputChange = (broswerEvent) => {
         const newOutfit = Object.assign({}, outfit)
@@ -81,13 +85,15 @@ export const NewOutfitForm = (props) => {
         
             <form className="newOutfitForm">
                 <h2 className="newOutfitForm__title">{props.edit ? "Update Outfit" : "Add New Outfit"}</h2>
-
                 {
                     loading ? (
                         <div> Loading... </div>
                     ) : props.edit ?
                             <>
-                                <input className="outfit__image"
+                            <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
+                                Upload an Image
+                                </label></Button>
+                                <input id="outfit__image"
                                     type="file"
                                     name="file"
                                     placeholder="Upload an image"
@@ -98,7 +104,10 @@ export const NewOutfitForm = (props) => {
 
                             : (
                                 <>
-                                    <input className="outfit__image"
+                                <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
+                                Upload an Image
+                                </label></Button>
+                                    <input id="outfit__image"
                                         type="file"
                                         name="file"
                                         placeholder="Upload an image"
@@ -110,7 +119,6 @@ export const NewOutfitForm = (props) => {
                 <br></br>
                 <ClothingItemSelector key={clothingItemOutfit.id} outfit={outfit} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
                 <fieldset>
-
                     <div className="form-group">
                         <label htmlFor="event">Event: </label>
                         <textarea type="text" name="event" required autoFocus className="form-control"
