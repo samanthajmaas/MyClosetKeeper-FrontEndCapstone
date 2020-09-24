@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Dropdown } from "react-multi-select-component";
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { ClothingItemSelected } from "./ClothingItemsSelected"
@@ -15,8 +13,6 @@ export const ClothingItemSelector = (props) => {
     const [clothingItemOutfit, setClothingItemOutfit] = useState({})
     const [selectedClosetItems, setSelectedClosetItems] = useState([])
 
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const toggle = () => setDropdownOpen(prevState => !prevState);
 
     const handleControlledInputChange = (broswerEvent) => {
         const selectedClothingItem = Object.assign({}, props.closetItem)
@@ -51,8 +47,9 @@ export const ClothingItemSelector = (props) => {
     }, [clothingItemOutfits])
 
     const constructNewRelationship = () => {
+        const outfitId = parseInt(props.match.params.outfitId)
         const closetItemId = parseInt(clothingItemOutfit.closetItemId)
-        const getOutfitId = outfits.find(outfit => outfit.id === outfits.length)
+        const getOutfitId = outfits.find(outfit => outfit.id === outfitId)
 
         addClothingItemsOutfits({
             closetItemId: closetItemId,
@@ -67,10 +64,11 @@ export const ClothingItemSelector = (props) => {
                     <select name="closetItemId" className="form-control outfitClosetItemSelect"
                         proptype="int"
                         value={clothingItemOutfit.closetItemId}
+                        
                         onChange={handleControlledInputChange}>
                         <option value="0">Select a clothing item...</option>
                         {closetItems.map(closetItem => (
-                            <option key={closetItem.id} value={closetItem.id}>
+                            <option style={{width:"auto", height:"100px"}} key={closetItem.id} value={closetItem.id}>
                                 {closetItem.type}
                             </option>
                         ))
@@ -83,10 +81,10 @@ export const ClothingItemSelector = (props) => {
                     evt.preventDefault()
                     constructNewRelationship()
                 }}
-                className="btn btn-primary">
+                className="btn btn-primary addClothingItemToOutfitButton">
                 {"+"}
             </button>
-            <div>
+            <div className="listOfSelectedItems">
                 {/* We are mapping over the array of selected closet items and then for each one we are passing through the ClothingItemSelected function to have it render to the DOM */}
                 {selectedClosetItems.map(selected => {
                     return <ClothingItemSelected key={selected.id} selected={selected} outfit={props.outfit} clothingItemOutfit={clothingItemOutfit} {...props} />

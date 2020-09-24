@@ -3,10 +3,11 @@ import { OutfitsContext } from "./OutfitsProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { ClothingItemSelector } from "./ClothingItemSelectorForForm"
 import "./Outfit.css"
-import { Collapse, Button} from 'reactstrap';
+import { Button } from 'reactstrap';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 export const NewOutfitForm = (props) => {
-    const { outfits, updateOutfit, getOutfits } = useContext(OutfitsContext)
+    const { outfits, updateOutfit, getOutfits, deleteOutfit } = useContext(OutfitsContext)
     const { clothingItemOutfits, getClothingItemsOutfits } = useContext(ClothingItemsOutfitsContext)
 
     const [outfit, setOutfit] = useState({})
@@ -60,7 +61,7 @@ export const NewOutfitForm = (props) => {
             userId: parseInt(localStorage.getItem("closet__user"))
         })
     }
-    
+
     useEffect(() => {
         getOutfits()
         getClothingItemsOutfits()
@@ -82,16 +83,23 @@ export const NewOutfitForm = (props) => {
 
     return (
         <>
-        
+            <Button
+                onClick={evt => {
+                    const outfitId = parseInt(props.match.params.outfitId)
+                    deleteOutfit(outfitId).then(() => props.history.push(`/outfits`))
+                }}
+            >
+                <ExitToAppIcon style={{ fontSize: 45 }} className="exitIcon" />
+            </Button>
             <form className="newOutfitForm">
                 <h2 className="newOutfitForm__title">{props.edit ? "Update Outfit" : "Add New Outfit"}</h2>
                 {
                     loading ? (
-                        <div> Loading... </div>
+                        <div className="loading"> Loading... </div>
                     ) : props.edit ?
                             <>
-                            <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
-                                Upload an Image
+                                <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
+                                    Upload an Image
                                 </label></Button>
                                 <input id="outfit__image"
                                     type="file"
@@ -99,13 +107,13 @@ export const NewOutfitForm = (props) => {
                                     placeholder="Upload an image"
                                     onChange={uploadImage}
                                 />
-                                <img src={image} style={{ width: "100px" }} />
+                                <img className="imagePreview" src={image} style={{ width: "100px" }} />
                             </>
 
                             : (
                                 <>
-                                <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
-                                Upload an Image
+                                    <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
+                                        Upload an Image
                                 </label></Button>
                                     <input id="outfit__image"
                                         type="file"
@@ -113,14 +121,16 @@ export const NewOutfitForm = (props) => {
                                         placeholder="Upload an image"
                                         onChange={uploadImage}
                                     />
-                                    <img src={image} style={{ width: "100px" }} />
+                                    <br></br>
+                                    <img className="imagePreview" src={image} style={{ width: "100px" }} />
                                 </>)
                 }
                 <br></br>
                 <ClothingItemSelector key={clothingItemOutfit.id} outfit={outfit} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
+                <br></br>
+                <br></br>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="event">Event: </label>
                         <textarea type="text" name="event" required autoFocus className="form-control"
                             proptype="varchar"
                             placeholder="Event Description"
@@ -134,7 +144,7 @@ export const NewOutfitForm = (props) => {
                         evt.preventDefault()
                         saveOutfitWithEvent()
                     }}
-                    className="btn btn-primary">
+                    className="btn btn-primary saveOutfit">
                     Save
                     </button>
             </form>

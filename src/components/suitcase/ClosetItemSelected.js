@@ -7,11 +7,12 @@ export const ClosetItemSelected = (props) => {
 
     return (
         <>
+            <img src={props.selected.image} style={{ width: "100px" }}/>
             <div className="suitcase__closetItems">
                 {props.selected.type}
             </div>
 
-            <button onClick={() => {
+            <button className="deleteRelationships" onClick={() => {
                 deleteSuitcasesClosetItems(props.selected.relationshipId)
             }}>x
             </button>

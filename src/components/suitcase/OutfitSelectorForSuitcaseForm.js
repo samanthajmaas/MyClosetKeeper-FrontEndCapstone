@@ -46,8 +46,9 @@ export const OutfitSelector = (props) => {
     }, [suitcasesOutfits])
 
     const constructNewRelationship = () => {
+        const suitcaseId = parseInt(props.match.params.suitcaseId)
         const outfitId = parseInt(suitcaseOutfit.outfitId)
-        const getSuitcaseId = suitcases.find(suitcase => suitcase.id === suitcases.length)
+        const getSuitcaseId = suitcases.find(suitcase => suitcase.id === suitcaseId)
 
         addSuitcasesOutfits({
             outfitId: outfitId,
@@ -61,7 +62,7 @@ export const OutfitSelector = (props) => {
         <>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="outfitId">Add Outfit:</label>
+                    
                     <select name="outfitId" className="form-control"
                         proptype="int"
                         value={suitcaseOutfit.outfitId}
@@ -81,12 +82,12 @@ export const OutfitSelector = (props) => {
                     evt.preventDefault()
                     constructNewRelationship()
                 }}
-                className="btn btn-primary">
+                className="btn btn-primary addClothingItemToOutfitButton">
                 {"+"}
             </button>
 
 
-            <div>
+            <div className="listOfSelectedItems">
                 {/* We are mapping over the array of selected closet items and then for each one we are passing through the ClothingItemSelected function to have it render to the DOM */}
                 {selectedOutfits.map(selected => {
                     return <OutfitSelected key={selected.id} selected={selected} suitcaseOutfit={suitcaseOutfit} {...props} />

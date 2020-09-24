@@ -5,9 +5,11 @@ import { SuitcaseContext } from "./SuitcaseProvider"
 import { SuitcasesClosetItemsContext } from "./SuitcasesClosetItemsProvider"
 import { SuitcasesOutfitsContext } from "./SuitcasesOutfitsProvider"
 import "./Suitcase.css"
+import { Button } from 'reactstrap';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 export const NewSuitcaseForm = (props) => {
-    const { suitcases, updateSuitcase, getSuitcases } = useContext(SuitcaseContext)
+    const { suitcases, updateSuitcase, getSuitcases, deleteSuitcase } = useContext(SuitcaseContext)
     const { suitcasesOutfits, getSuitcasesOutfits } = useContext(SuitcasesOutfitsContext)
     const {suitcasesClosetItems, getSuitcasesClosetItems} = useContext(SuitcasesClosetItemsContext)
 
@@ -58,16 +60,27 @@ export const NewSuitcaseForm = (props) => {
 
     return (
         <>
+            <Button
+                onClick={evt => {
+                    const suitcaseId = parseInt(props.match.params.suitcaseId)
+                    deleteSuitcase(suitcaseId).then(() => props.history.push(`/suitcases`))
+                }}
+            >
+                <ExitToAppIcon style={{ fontSize: 45 }} className="exitIcon" />
+            </Button>
             <form className="newSuitcaseForm">
                 <h2 className="newSuitcaseForm__title">{props.edit ? "Update Suitcase" : "Add New Suitcase"}</h2>
                     <br></br>
                 <OutfitSelector key={suitcaseOutfit.id} outfit={outfit} setOutfit={setOutfit} {...props} />
+                <br></br>
                 <ClosetItemSelector key={suitcaseClosetItem.id} closetItem={closetItem} setClosetItem={setClosetItem} {...props} />
+                <br></br>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="tripName">Where are you going?</label>
+                        
                         <input type="text" name="tripName" required autoFocus className="form-control"
                             proptype="varchar"
+                            placeholder="Where are you going?"
                             defaultValue={suitcase.tripName}
                             onChange={handleControlledInputChange}
                         ></input>
@@ -75,10 +88,10 @@ export const NewSuitcaseForm = (props) => {
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="description">Description of trip:</label>
+                        
                         <input type="text" name="description" required autoFocus className="form-control"
                             proptype="varchar"
-                            placeholder="Why are you going? What will you do while there?"
+                            placeholder="Trip description"
                             defaultValue={suitcase.description}
                             onChange={handleControlledInputChange}
                         ></input>
@@ -89,7 +102,7 @@ export const NewSuitcaseForm = (props) => {
                         evt.preventDefault()
                         saveSuitcaseWithUpdates()
                     }}
-                    className="btn btn-primary">
+                    className="btn btn-primary saveOutfit">
                     Save
                     </button>
             </form>

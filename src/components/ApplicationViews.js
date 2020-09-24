@@ -112,13 +112,13 @@ export const ApplicationViews = (props) => {
 
 
             {/* Used to logout current user and should always be at the bottom of the page */}
-            <Link className="logout" to="/logout">Logout</Link>
+            {/* <Link className="logout" to="/logout">Logout</Link>
             <Route path="/logout" render={
                 (props) => {
                     localStorage.removeItem("closet__user")
                     props.history.push("/login")
                 }
-            } />
+            } /> */}
 
         </>
     )

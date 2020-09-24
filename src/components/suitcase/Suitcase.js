@@ -36,7 +36,7 @@ export const Suitcase = (props) => {
                     </CardBody>
                 </Card>
             </section> */}
-            <section className="suitcase">
+            {/* <section className="suitcase">
                 <div className="suitcaseCard">
                     <div className="suitcaseCardBody">
                         <h3 className="suitcase__tripName">{props.suitcase.tripName}</h3>
@@ -62,9 +62,7 @@ export const Suitcase = (props) => {
 
                                     }
                                 </div>
-                                                    {/* <div>
-                                <WeatherList key ={props.suitcase.id} suitcase={props.suitcase} {...props}/>
-                                </div> */}
+                                               
                                 <div className="suitcase__description">{props.suitcase.description}</div>
                                 <button  className = "editIconButton" onClick={() => {
                                     props.history.push(`/suitcases/edit/${props.suitcase.id}`)
@@ -85,6 +83,59 @@ export const Suitcase = (props) => {
                         </Button>
                     </div>
                 </div>
+            </section> */}
+            <section className="suitcase">
+                
+                        
+                            <section className="suitcasePopup">
+                            <h3 className="suitcase__tripName">{props.suitcase.tripName}</h3>
+                            <div className="suitcasePictures">
+                                <div className="suitcase__outfits">
+                                    {
+                                        props.findOutfits.map(outfit => {
+                                            return (
+                                            <>
+                                            <img src={outfit.image} style={{ width: "125px" }} />
+                                            <div>{outfit.event}</div>
+                                            </>
+                                            )
+                                        })
+
+                                    }
+                                </div>
+                                <div className="suitcase__closetItems">
+                                    {
+                                        props.findClosetItems.map(closetItem => {
+                                            return (
+                                            <>
+                                            <img src={closetItem.image} style={{ width: "125px" }} />
+                                            <div>{closetItem.type}</div>
+                                            </>
+                                            )
+                                        })
+
+                                    }
+                                </div>
+                                </div>
+                                                    {/* <div>
+                                <WeatherList key ={props.suitcase.id} suitcase={props.suitcase} {...props}/>
+                                </div> */}
+                                <div className="suitcase__description">{props.suitcase.description}</div>
+                                <button  className = "editIconButton" onClick={() => {
+                                    props.history.push(`/suitcases/edit/${props.suitcase.id}`)
+                                }}><EditIcon className="editIcon" /></button>
+                            
+                    <Button className="deleteIconButton" onClick={
+                            () => {
+                                deleteSuitcase(props.suitcase.id)
+                                    .then(() => {
+                                        props.history.push(`/suitcases`)
+                                    })
+                            }
+                        }>
+                            <DeleteIcon className="deleteIcon" />
+                        </Button>
+                        </section>
             </section>
         </>
     )
