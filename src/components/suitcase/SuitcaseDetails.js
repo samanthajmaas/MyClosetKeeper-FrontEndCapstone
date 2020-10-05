@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
+
 export const SuitcaseDetails = (props) => {
     const { suitcases, getSuitcases, deleteSuitcase } = useContext(SuitcaseContext)
     const { outfits, getOutfits } = useContext(OutfitsContext)
@@ -108,9 +109,6 @@ export const SuitcaseDetails = (props) => {
                             }
                         </div>
                     </div>
-                    {/* <div>
-                                <WeatherList key ={props.suitcase.id} suitcase={props.suitcase} {...props}/>
-                    </div> */}
                     <br></br>
                     <div className="suitcase__detailsTitle">Trip Details</div>
                     <div className="suitcase__details">{suitcase.details}</div>

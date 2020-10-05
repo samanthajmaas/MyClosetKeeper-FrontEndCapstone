@@ -19,7 +19,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import "./MyClosetKeeper.css"
 import { ClosetItemSearch } from "./myCloset/ClosetItemSearch"
 import { SuitcaseDetails } from "./suitcase/SuitcaseDetails"
-// import { WeatherProvider } from "./weather/WeatherProvider"
+
+
 
 export const ApplicationViews = (props) => {
     return (
@@ -98,23 +99,21 @@ export const ApplicationViews = (props) => {
                     <OutfitsProvider>
                         <SuitcasesOutfitsProvider>
                             <SuitcasesClosetItemsProvider>
+                                    <Route exact path="/suitcases" render={
+                                        props => <SuitcasesList {...props} />
+                                    } />
 
-                                <Route exact path="/suitcases" render={
-                                    props => <SuitcasesList {...props} />
-                                } />
+                                    <Route exact path="/suitcases/create/:suitcaseId(\d+)" render={
+                                        props => <NewSuitcaseForm {...props} edit={false} />
+                                    } />
 
-                                <Route exact path="/suitcases/create/:suitcaseId(\d+)" render={
-                                    props => <NewSuitcaseForm {...props} edit={false} />
-                                } />
+                                    <Route path="/suitcases/edit/:suitcaseId(\d+)" render={
+                                        props => <NewSuitcaseForm {...props} edit={true} />
+                                    } />
 
-                                <Route path="/suitcases/edit/:suitcaseId(\d+)" render={
-                                    props => <NewSuitcaseForm {...props} edit={true} />
-                                } />
-
-                                <Route path="/suitcases/:suitcaseId(\d+)" render={
-                                    props => <SuitcaseDetails {...props} />
-                                } />
-
+                                    <Route path="/suitcases/:suitcaseId(\d+)" render={
+                                        props => <SuitcaseDetails {...props} />
+                                    } />
                             </SuitcasesClosetItemsProvider>
                         </SuitcasesOutfitsProvider>
                     </OutfitsProvider>
