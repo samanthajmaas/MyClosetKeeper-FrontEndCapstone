@@ -80,7 +80,21 @@ export const NewClosetItemForm = (props) => {
                     categoryId: categoryId,
                     userId: parseInt(localStorage.getItem("closet__user"))
                 })
-                    .then(() => props.history.push(`/myCloset`))
+                .then(() => {
+                    if(categoryId === 1){
+                    props.history.push(`/myCloset/tops`)
+                    } else if(categoryId=== 2){
+                    props.history.push(`/myCloset/bottoms`)
+                    }else if(categoryId=== 3){
+                    props.history.push(`/myCloset/onePieces`)
+                    }else if(categoryId=== 4){
+                    props.history.push(`/myCloset/jackets`)
+                    }else if(categoryId=== 5){
+                    props.history.push(`/myCloset/shoes`)
+                    }else if(categoryId=== 6){
+                    props.history.push(`/myCloset/accessorys`)
+                    }
+                })
             } else {
                 addClosetItems({
                     image: image,
@@ -92,7 +106,21 @@ export const NewClosetItemForm = (props) => {
                     categoryId: categoryId,
                     userId: parseInt(localStorage.getItem("closet__user"))
                 })
-                    .then(() => props.history.push(`/myCloset`))
+                .then(() => {
+                    if(categoryId === 1){
+                    props.history.push(`/myCloset/tops`)
+                    } else if(categoryId=== 2){
+                    props.history.push(`/myCloset/bottoms`)
+                    }else if(categoryId=== 3){
+                    props.history.push(`/myCloset/onePieces`)
+                    }else if(categoryId=== 4){
+                    props.history.push(`/myCloset/jackets`)
+                    }else if(categoryId=== 5){
+                    props.history.push(`/myCloset/shoes`)
+                    }else if(categoryId=== 6){
+                    props.history.push(`/myCloset/accessorys`)
+                    }
+                })
             }
         }
     }

@@ -17,18 +17,25 @@ import { SuitcasesList } from "./suitcase/SuitcasesList"
 import { NewSuitcaseForm } from "./suitcase/NewSuitcaseForm"
 import HomeIcon from '@material-ui/icons/Home';
 import "./MyClosetKeeper.css"
+import { ClosetItemSearch } from "./myCloset/ClosetItemSearch"
+import { SuitcaseDetails } from "./suitcase/SuitcaseDetails"
 // import { WeatherProvider } from "./weather/WeatherProvider"
-
 
 export const ApplicationViews = (props) => {
     return (
         <>
-
-            <Route exact path="/myCloset" render={props => <MyClosetMenuButtons {...props} />} />
+            <MyClosetProvider>
+                <Route exact path="/myCloset" render={props =>
+                    <>
+                        <ClosetItemSearch />
+                        <MyClosetMenuButtons {...props} />
+                    </>
+                } />
+            </MyClosetProvider>
 
             {/* This is what makes it so the main menu is not a nav bar but it is a menu that leads you to other pages */}
             <Route exact path="/" render={props => <MainPageLinks {...props} />} />
-            <Link className="navbar__link" to="/"><HomeIcon style={{ fontSize: 45 }}  className="homeIcon"/></Link>
+            <Link className="navbar__link" to="/"><HomeIcon style={{ fontSize: 45 }} className="homeIcon" /></Link>
 
             {/* Renders my closet list. Has all different functions depending on the category due to the different routes.*/}
             <MyClosetProvider>
@@ -91,34 +98,36 @@ export const ApplicationViews = (props) => {
                     <OutfitsProvider>
                         <SuitcasesOutfitsProvider>
                             <SuitcasesClosetItemsProvider>
-                               
-                                    <Route exact path="/suitcases" render={
-                                        props => <SuitcasesList {...props} />
-                                    } />
 
-                                    <Route exact path="/suitcases/:suitcaseId(\d+)/create" render={
-                                        props => <NewSuitcaseForm {...props} edit={false} />
-                                    } />
+                                <Route exact path="/suitcases" render={
+                                    props => <SuitcasesList {...props} />
+                                } />
 
-                                    <Route path="/suitcases/edit/:suitcaseId(\d+)" render={
-                                        props => <NewSuitcaseForm {...props} edit={true} />
-                                    } />
-                               
+                                <Route exact path="/suitcases/create/:suitcaseId(\d+)" render={
+                                    props => <NewSuitcaseForm {...props} edit={false} />
+                                } />
+
+                                <Route path="/suitcases/edit/:suitcaseId(\d+)" render={
+                                    props => <NewSuitcaseForm {...props} edit={true} />
+                                } />
+
+                                <Route path="/suitcases/:suitcaseId(\d+)" render={
+                                    props => <SuitcaseDetails {...props} />
+                                } />
+
                             </SuitcasesClosetItemsProvider>
                         </SuitcasesOutfitsProvider>
                     </OutfitsProvider>
                 </MyClosetProvider>
             </SuitcaseProvider>
 
-
-            {/* Used to logout current user and should always be at the bottom of the page */}
-            <Link className="logout" to="/logout">Logout</Link>
             <Route path="/logout" render={
                 (props) => {
                     localStorage.removeItem("closet__user")
                     props.history.push("/login")
                 }
             } />
+
 
         </>
     )

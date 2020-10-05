@@ -1,18 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
 
-.logout{
-  position: absolute;
-  padding-top: 5px;
-  right: 165px;
-  bottom: 0px;
-  color: #2B3841;
-  font-family: 'Lora', serif;
-  font-size: 26px;
-  font-weight: 100px;
-  font-style: bold;
-  text-decoration: none;
-}
-
 .homeIcon{
   position: absolute;
   top: 5px;

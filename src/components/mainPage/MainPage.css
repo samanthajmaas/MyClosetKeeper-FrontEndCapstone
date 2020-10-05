@@ -38,3 +38,10 @@
     border-radius: 10px;
     text-decoration: none;
 }
+
+.exitIcon{
+    position: absolute;
+    top: 5pxpx;
+    right: 5px;
+    color: #425664;
+}

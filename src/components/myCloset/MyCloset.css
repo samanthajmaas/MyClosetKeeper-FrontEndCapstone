@@ -3,7 +3,7 @@
 
 .exitIcon{
     position: absolute;
-    top: 5pxpx;
+    top: 5px;
     right: 5px;
     color: #425664;
 }
@@ -19,10 +19,30 @@
     color: #2B3841
 }
 
+.searchedClosetItems{
+    position: absolute;
+    top: 200px;
+}
+
 .myClosetMenu{
     position: absolute;
     top: 230px;
     left: 7px;
+}
+
+.input--wide{
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    position: absolute;
+    left: 115px;
+    top: 15px;
+    justify-content: center;
 }
 
 .addClosetItemButton{
@@ -167,11 +187,6 @@
 
 #clothingItem__image{
     display: none;
-}
-
-.imagePreview{
-    position: relative;
-    left: 150px;
 }
 
 .btn-primary{

@@ -7,7 +7,6 @@ import {
   import EditIcon from '@material-ui/icons/Edit';
   import DeleteIcon from '@material-ui/icons/Delete';
 import "./MyCloset.css"
-import { CategoriesContext } from "./CategoriesProvider";
 
 export const ClothingItem = (props) => {
     const {deleteClosetItem} = useContext(MyClosetContext)
@@ -20,7 +19,11 @@ export const ClothingItem = (props) => {
                 <CardTitle className="item__type"> {props.closetItem.type}</CardTitle>
                     <div className="item__color">Color: {props.closetItem.color}</div>
                         <CardText className="item__size">Size: {props.closetItem.size}</CardText>
-                        <CardText className="item__material">Material: {props.closetItem.material}</CardText>
+                        <CardText className="item__material">
+                           
+                            Material: {props.closetItem.material}
+                            
+                            </CardText>
                         <CardText className="item__purchased">Purchased at: {props.closetItem.placeOfPurchase}</CardText>
                         <Button className="deleteIconButton" onClick={
                             () => {

@@ -25,12 +25,11 @@ export const NewSuitcaseForm = (props) => {
         setSuitcase(newSuitcase)
     }
 
-
     const getSuitcaseToSave = () => {
         const suitcaseId = parseInt(props.match.params.suitcaseId)
         const selectedSuitcase = suitcases.find(a => a.id === suitcaseId) || {}
         const matchingOutfitRelationships = suitcasesOutfits.map(outfitRelationship => outfitRelationship.suitcaseId === suitcaseId) || {}
-        const matchingClosetItemRelationships = suitcasesClosetItems.map(closetItemRelationship => closetItemRelationship.suitcaseId === suitcaseId )
+        const matchingClosetItemRelationships = suitcasesClosetItems.map(closetItemRelationship => closetItemRelationship.suitcaseId === suitcaseId)
         setSuitcase(selectedSuitcase)
         setSuitcaseOutfit(matchingOutfitRelationships)
         setSuitcaseClosetItem(matchingClosetItemRelationships)
@@ -50,8 +49,10 @@ export const NewSuitcaseForm = (props) => {
     const saveSuitcaseWithUpdates = () => {
         updateSuitcase({
             id: suitcase.id,
+            startDate: suitcase.startDate,
+            endDate: suitcase.endDate,
             tripName: suitcase.tripName,
-            description: suitcase.description,
+            details: suitcase.details,
             userId: parseInt(localStorage.getItem("closet__user"))
         })
             .then(() => props.history.push(`/suitcases`))
@@ -88,11 +89,27 @@ export const NewSuitcaseForm = (props) => {
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
+                        <label className="dateFormLabels"> From:</label>
+                        <input type="date" name="startDate" required autoFocus className="form-control"
+                            defaultValue={suitcase.startDate}
+                            onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                    <label className="dateFormLabels"> To:</label>
+                        <input type="date" name="endDate" required autoFocus className="form-control"
+                            defaultValue={suitcase.endDate}
+                            onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
                         
-                        <input type="text" name="description" required autoFocus className="form-control"
+                        <input type="text" name="details" required autoFocus className="form-control"
                             proptype="varchar"
-                            placeholder="Trip description"
-                            defaultValue={suitcase.description}
+                            placeholder="Trip details"
+                            defaultValue={suitcase.details}
                             onChange={handleControlledInputChange}
                         ></input>
                     </div>

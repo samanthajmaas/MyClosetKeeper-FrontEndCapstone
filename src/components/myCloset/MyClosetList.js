@@ -6,7 +6,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "./MyCloset.css"
 
 export const MyTopsList = (props) => {
-    const { closetItems, getClosetItems } = useContext(MyClosetContext)
+    const { closetItems, getClosetItems, searchTerms} = useContext(MyClosetContext)
 
     useEffect(() => {
         getClosetItems()
