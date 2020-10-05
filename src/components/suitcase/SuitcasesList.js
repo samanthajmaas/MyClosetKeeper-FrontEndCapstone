@@ -32,7 +32,7 @@ export const SuitcasesList = (props) => {
                 <div className="suitcaseButtons">
                     {filteredSuitcase.map(suitcase => {
                         return <Suitcase key={suitcase.id} suitcase={suitcase} {...props}/>
-                    })
+                    }).reverse()
                     }
                 </div>
             </section>

@@ -46,7 +46,7 @@ export const OutfitsList = (props) => {
                         })
 
                         return <Outfit key={outfit.id} outfit={outfit} closetItems={closetItems} findClothingItems={findClothingItems} {...props} />
-                    })
+                    }).reverse()
                 }
             </section>
         </>

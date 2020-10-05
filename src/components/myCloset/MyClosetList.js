@@ -25,7 +25,7 @@ export const MyTopsList = (props) => {
                             if (closetItem.categoryId === 1) {
                                 return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                             }
-                        })
+                        }).reverse()
                     }
                 </div>
             </section>
@@ -53,7 +53,7 @@ export const MyBottomsList = (props) => {
                             if (closetItem.categoryId === 2) {
                                 return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                             }
-                        })
+                        }).reverse()
                     }
                 </div>
             </section>
@@ -82,7 +82,7 @@ export const MyOnePiecesList = (props) => {
                             if (closetItem.categoryId === 3) {
                                 return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                             }
-                        })
+                        }).reverse()
                     }
                 </div>
             </section>
@@ -112,7 +112,7 @@ export const MyJacketsList = (props) => {
                                 if (closetItem.categoryId === 4) {
                                     return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                                 }
-                            })
+                            }).reverse()
                         }
                     </div>
                 </section>
@@ -143,7 +143,7 @@ export const MyShoesList = (props) => {
                                 if (closetItem.categoryId === 5) {
                                     return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                                 }
-                            })
+                            }).reverse()
                         }
                     </div>
                 </section>
@@ -173,7 +173,7 @@ export const MyAccessoriesList = (props) => {
                                 if (closetItem.categoryId === 6) {
                                     return <ClothingItem key={closetItem.id} closetItem={closetItem} {...props} />
                                 }
-                            })
+                            }).reverse()
                         }
                     </div>
                 </section>
