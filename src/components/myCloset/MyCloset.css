@@ -172,7 +172,15 @@
     font-size: 20px;
     border-radius: 8px;
     background:#EFE8DF;
-    
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 110px   
+}
+
+.imagePreview{
+    position: relative;
+    left: 110px;
 }
 
 .clothingImage{
@@ -182,7 +190,6 @@
     background:#EFE8DF;
     border-radius: 10px;
  
-
 }
 
 #clothingItem__image{

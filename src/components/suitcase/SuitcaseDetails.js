@@ -87,7 +87,7 @@ export const SuitcaseDetails = (props) => {
                                     return (
                                         <>
                                             <img src={outfit.image} style={{ width: "125px" }} />
-                                            <div>{outfit.event}</div>
+                                            
                                         </>
                                     )
                                 })
@@ -101,7 +101,7 @@ export const SuitcaseDetails = (props) => {
                                     return (
                                         <>
                                             <img src={closetItem.image} style={{ width: "125px" }} />
-                                            <div>{closetItem.type}</div>
+                                            
                                         </>
                                     )
                                 })

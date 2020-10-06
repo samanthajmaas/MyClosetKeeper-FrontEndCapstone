@@ -56,16 +56,21 @@
     font-family: 'Lora', serif;
 }
 
-.styleUpload{
+.styleOutfitUpload{
     display: flex;
     justify-content: center;
     position: relative;
-    left: 110px;
+    left: 120px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    border-radius: 8px;
+    background:#EFE8DF;
 }
 
-.imagePreview{
+.outfitImagePreview{
     position: relative;
-    left: 110px;
+    left: 120px;
 }
 
 .newOutfitForm{
@@ -141,7 +146,6 @@
 }
 
 
-
 .saveOutfit{
     position: relative;
     left: 170px;
@@ -161,13 +165,10 @@ select{
     left: 8px;
     width: 450px;
     max-height: 100px;
-    background:#EFE8DF;
     backdrop-filter: blur(4px);
     border-radius: 10px;
     align-items: center;
     font-family: 'Lora', serif;
-
-    
 }
 
 .addClothingItemToOutfitButton{
@@ -177,7 +178,7 @@ select{
 
 .deleteOutfitRelationshipsButton{
     position: relative;
-    top: -163px;
+    top: -140px;
     left: 74px;
     color: #425664;
     font-family: 'Lora', serif;
@@ -194,11 +195,6 @@ select{
     font-size: 19px;
     color: #2B3841;
     font-family: 'Lora', serif;
-}
-
-.outfit__clothingItemSelected{
-    background:#EFE8DF;
-    width: 160px;
 }
 
 .options{

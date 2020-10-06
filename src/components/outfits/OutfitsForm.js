@@ -98,7 +98,7 @@ export const NewOutfitForm = (props) => {
                         <div className="loading"> Loading... </div>
                     ) : props.edit ?
                             <>
-                                <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
+                                <Button onClick={toggle} className="styleOutfitUpload"> <label for="outfit__image" className="outfitImage">
                                     Upload an Image
                                 </label></Button>
                                 <input id="outfit__image"
@@ -107,12 +107,14 @@ export const NewOutfitForm = (props) => {
                                     placeholder="Upload an image"
                                     onChange={uploadImage}
                                 />
-                                <img className="imagePreview" src={image} style={{ width: "100px" }} />
+                                <div className="outfitImagePreview">
+                                    <img src={image} style={{ width: "150px" }} />
+                                </div>
                             </>
 
                             : (
                                 <>
-                                    <Button onClick={toggle} className="styleUpload"> <label for="outfit__image" className="outfitImage">
+                                    <Button onClick={toggle} className="styleOutfitUpload"> <label for="outfit__image" className="outfitImage">
                                         Upload an Image
                                 </label></Button>
                                     <input id="outfit__image"
@@ -122,7 +124,7 @@ export const NewOutfitForm = (props) => {
                                         onChange={uploadImage}
                                     />
                                     <br></br>
-                                    <img className="imagePreview" src={image} style={{ width: "100px" }} />
+                                    <img className="outfitImagePreview" src={image} style={{ width: "150px" }} />
                                 </>)
                 }
                 <br></br>

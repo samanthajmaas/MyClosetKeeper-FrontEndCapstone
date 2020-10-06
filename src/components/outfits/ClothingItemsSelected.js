@@ -9,9 +9,7 @@ export const ClothingItemSelected = (props) => {
         <>
             <img src={props.selected.image} style={{ width: "100px" }}/>
             <section>
-                <div className="outfit__clothingItemSelected">
-                    {props.selected.type}
-                </div>
+                
             </section>
             <button className=" deleteOutfitRelationshipsButton" onClick={() => {
                 deleteClothingItemsOutfits(props.selected.relationshipId)
