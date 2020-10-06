@@ -4,6 +4,7 @@ export const MyClosetContext = React.createContext()
 
 export const MyClosetProvider = (props) => {
     const [closetItems, setClosetItems] = useState([])
+    const [ searchTerms, setTerms ] = useState("")
 
     const getClosetItems = () => {
         return fetch("http://localhost:8088/closetItems")
@@ -42,7 +43,7 @@ export const MyClosetProvider = (props) => {
 
     return (
         <MyClosetContext.Provider value={{
-            closetItems, addClosetItems, getClosetItems, deleteClosetItem, updateClosetItem
+            closetItems, addClosetItems, getClosetItems, deleteClosetItem, updateClosetItem, searchTerms, setTerms
         }}>
             {props.children}
         </MyClosetContext.Provider>

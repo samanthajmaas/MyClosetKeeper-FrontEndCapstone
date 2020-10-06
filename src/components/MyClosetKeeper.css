@@ -1,22 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
 
-
-body,
-button,
-input,
-select,
-textarea {
-  color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
+.homeIcon{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: #425664;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Patua One", serif;
-  letter-spacing: 2px;
-}

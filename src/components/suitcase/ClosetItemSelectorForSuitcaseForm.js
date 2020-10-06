@@ -3,6 +3,7 @@ import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { ClosetItemSelected } from "./ClosetItemSelected"
 import { SuitcaseContext } from "./SuitcaseProvider"
 import { SuitcasesClosetItemsContext } from "./SuitcasesClosetItemsProvider"
+import "./Suitcase.css"
 
 export const ClosetItemSelector = (props) => {
     const{suitcasesClosetItems, getSuitcasesClosetItems, addSuitcasesClosetItems} = useContext(SuitcasesClosetItemsContext)
@@ -45,8 +46,9 @@ export const ClosetItemSelector = (props) => {
     }, [suitcasesClosetItems])
 
     const constructNewRelationship = () => {
+        const suitcaseId = parseInt(props.match.params.suitcaseId)
         const closetItemId = parseInt(suitcaseClosetItem.closetItemId)
-        const getSuitcaseId = suitcases.find(suitcase => suitcase.id === suitcases.length)
+        const getSuitcaseId = suitcases.find(suitcase => suitcase.id === suitcaseId)
 
         addSuitcasesClosetItems({
             closetItemId: closetItemId,
@@ -60,7 +62,7 @@ export const ClosetItemSelector = (props) => {
         <>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="closetItemId">Add items for My Closet:</label>
+                    
                     <select name="closetItemId" className="form-control"
                         proptype="int"
                         value={suitcaseClosetItem.closetItemId}
@@ -80,12 +82,12 @@ export const ClosetItemSelector = (props) => {
                     evt.preventDefault()
                     constructNewRelationship()
                 }}
-                className="btn btn-primary">
+                className="btn btn-primary addClothingItemToOutfitButton">
                 {"+"}
             </button>
 
 
-            <div>
+            <div className="listOfSelectedClosetItems">
                 {/* We are mapping over the array of selected closet items and then for each one we are passing through the ClothingItemSelected function to have it render to the DOM */}
                 {selectedClosetItems.map(selected => {
                     return <ClosetItemSelected key={selected.id} selected={selected} suitcaseClosetItem={suitcaseClosetItem} {...props} />

@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
+
+.mainPage{
+    position: absolute;
+    top: 230px;
+    left: 7px;
+}
+
+.mainPage__welcome{
+    position: absolute;
+    top: 50px;
+    left: 115px;
+    font-family: 'Euphoria Script', cursive;
+    font-style: bold;
+    font-weight: 65px;
+    font-size: 68px;
+    line-height: 80px;
+    color: #425664;
+    background:#EFE8DF;
+    backdrop-filter: blur(300px);
+    border-radius: 10px;
+}
+
+.mainPageButton{
+    width: 400px;
+    height: 123px;
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.mainPage__link{
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.exitIcon{
+    position: absolute;
+    top: 5pxpx;
+    right: 5px;
+    color: #425664;
+}

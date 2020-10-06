@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
+
+
+.exitIcon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #425664;
+}
+
+.myClosetHeader{
+    position: absolute;
+    left: 97px;
+    font-family: 'Euphoria Script', cursive;
+    font-style: bold;
+    font-weight: 100px;
+    font-size: 68px;
+    line-height: 80px;
+    color: #2B3841
+}
+
+.searchedClosetItems{
+    position: absolute;
+    top: 200px;
+}
+
+.myClosetMenu{
+    position: absolute;
+    top: 230px;
+    left: 7px;
+}
+
+.input--wide{
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    position: absolute;
+    left: 115px;
+    top: 15px;
+    justify-content: center;
+}
+
+.addClosetItemButton{
+    position: absolute;
+    bottom: 540px;
+    right: 171px;
+    width: 75px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.myClosetCategoryButton{
+    width: 200px;
+    height: 123px;
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.myClosetMenu__link{
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.closetItemsList{
+    margin-bottom: 100px;
+}
+
+.categoryTitle{
+    display: flex;
+    justify-content: center;
+    font-style: bold;
+    font-weight: 100px;
+    font-size: 45px;
+    color: #2B3841
+}
+
+.item{
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+    margin: 20px;
+    color: #425664;
+    font-family: 'Lora', serif;
+}
+
+.item__type{
+    font-size: 25px;
+}
+
+.closetItemCard{
+    position: relative ;
+    width: 350px;
+    height: 475px;
+    background: rgba(255, 255, 255, 0.80);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    text-align: center;  
+}
+
+.closetItemCardBody{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.editIconButton{
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 10px;
+    background:#EFE8DF;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.deleteIconButton{
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 10px;
+    background:#EFE8DF;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.newClothingItemForm{
+    position: absolute;
+    left: 7px;
+    top: 50px;
+    width: 400px;
+    height: 800px;
+    border-radius: 10px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.newClothingItemForm__title{
+    display: flex;
+    justify-content: center;
+    font-style: bold;
+    font-weight: 100px;
+    font-size: 30px;
+    color: #2B3841
+}
+
+.styleUpload{
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    border-radius: 8px;
+    background:#EFE8DF;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 110px   
+}
+
+.imagePreview{
+    position: relative;
+    left: 110px;
+}
+
+.clothingImage{
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    background:#EFE8DF;
+    border-radius: 10px;
+ 
+}
+
+#clothingItem__image{
+    display: none;
+}
+
+.btn-primary{
+    position: absolute;
+    left: 120px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    background:#EFE8DF;
+    border-radius: 8px;
+}

@@ -1,6 +1,10 @@
 import React, { useContext, useState, useEffect } from "react"
 import { MyClosetContext } from "./MyClosetProvider"
 import { CategoriesContext } from "./CategoriesProvider"
+import "./MyCloset.css"
+import { Link } from "react-router-dom"
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { Collapse, Button} from 'reactstrap';
 
 export const NewClosetItemForm = (props) => {
     const { addClosetItems, closetItems, updateClosetItem, getClosetItems } = useContext(MyClosetContext)
@@ -8,7 +12,10 @@ export const NewClosetItemForm = (props) => {
 
     const [closetItem, setClosetItem] = useState({})
     const [image, setImage] = useState('')
-    const [ loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
 
     const editMode = props.match.params.hasOwnProperty("closetItemId")
 
@@ -21,7 +28,7 @@ export const NewClosetItemForm = (props) => {
         const res = await fetch(
             `	https://api.cloudinary.com/v1_1/dkzwttxez/image/upload`,
             {
-                method:"POST",
+                method: "POST",
                 body: data
             }
         )
@@ -73,7 +80,21 @@ export const NewClosetItemForm = (props) => {
                     categoryId: categoryId,
                     userId: parseInt(localStorage.getItem("closet__user"))
                 })
-                    .then(() => props.history.push(`/myCloset`))
+                .then(() => {
+                    if(categoryId === 1){
+                    props.history.push(`/myCloset/tops`)
+                    } else if(categoryId=== 2){
+                    props.history.push(`/myCloset/bottoms`)
+                    }else if(categoryId=== 3){
+                    props.history.push(`/myCloset/onePieces`)
+                    }else if(categoryId=== 4){
+                    props.history.push(`/myCloset/jackets`)
+                    }else if(categoryId=== 5){
+                    props.history.push(`/myCloset/shoes`)
+                    }else if(categoryId=== 6){
+                    props.history.push(`/myCloset/accessorys`)
+                    }
+                })
             } else {
                 addClosetItems({
                     image: image,
@@ -85,35 +106,59 @@ export const NewClosetItemForm = (props) => {
                     categoryId: categoryId,
                     userId: parseInt(localStorage.getItem("closet__user"))
                 })
-                    .then(() => props.history.push(`/myCloset`))
+                .then(() => {
+                    if(categoryId === 1){
+                    props.history.push(`/myCloset/tops`)
+                    } else if(categoryId=== 2){
+                    props.history.push(`/myCloset/bottoms`)
+                    }else if(categoryId=== 3){
+                    props.history.push(`/myCloset/onePieces`)
+                    }else if(categoryId=== 4){
+                    props.history.push(`/myCloset/jackets`)
+                    }else if(categoryId=== 5){
+                    props.history.push(`/myCloset/shoes`)
+                    }else if(categoryId=== 6){
+                    props.history.push(`/myCloset/accessorys`)
+                    }
+                })
             }
         }
     }
 
     return (
+        <>
+        <Link className="navbar__link" to="/MyCloset"><ExitToAppIcon style={{ fontSize: 45 }} className="exitIcon" /></Link>
         <form className="newClothingItemForm">
             <h2 className="newClothingItemForm__title">{editMode ? "Update Clothing Item" : "Add New Item"}</h2>
             <fieldset>
                 <div className="form-group">
-                    <input className="clothingItem__image"
-                    type="file"
-                    name="file"
-                    placeholder="Upload an image"
-                    onChange={uploadImage}
+                    <Button onClick={toggle} className="styleUpload"> <label for="clothingItem__image" className="clothingImage">
+                        Upload an Image
+                    </label></Button>
+                    <input 
+                        id="clothingItem__image"
+                        type="file"
+                        name="file"
+                        placeholder="Upload an image"
+                        onChange={uploadImage}
                     />
+                    <br></br>
+                    <Collapse isOpen={isOpen}>
+                    <div className="imagePreview">
                     {loading ? (
                         <div> Loading... </div>
-                    ): editMode ? (
-                        <img src={image} style={{width: "100px"}}/>
+                    ) : editMode ? (
+                        <img src={image} style={{ width: "150px" }} />
 
-                    ): (<img src={image} style={{width: "100px"}}/>)}
+                    ) : (<img src={image} style={{ width: "150px" }} />)}
+                    </div>
+                    </Collapse>
                     <br></br>
-                    <label htmlFor="categoryId">Category: </label>
                     <select name="categoryId" className="form-control"
                         proptype="int"
                         value={closetItem.categoryId}
                         onChange={handleControlledInputChange}
-                        >
+                    >
 
                         <option value="0">Select a category</option>
                         {categories.map(e => (
@@ -126,7 +171,7 @@ export const NewClosetItemForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Type: </label>
+
                     <input type="text" name="type" required autoFocus className="form-control"
                         proptype="varchar"
                         placeholder="Type of clothing"
@@ -137,7 +182,7 @@ export const NewClosetItemForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="color">Clothing Color: </label>
+
                     <input type="text" name="color" required className="form-control"
                         proptype="varchar"
                         placeholder="Color of clothing"
@@ -148,9 +193,9 @@ export const NewClosetItemForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="size">Size: </label>
                     <input type="text" name="size" className="form-control"
                         proptype="varchar"
+                        placeholder="Size"
                         value={closetItem.size}
                         onChange={handleControlledInputChange}>
                     </input>
@@ -158,9 +203,10 @@ export const NewClosetItemForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="material">Material: </label>
+
                     <input type="text" name="material" className="form-control"
                         proptype="varchar"
+                        placeholder="Material"
                         value={closetItem.material}
                         onChange={handleControlledInputChange}>
                     </input>
@@ -168,9 +214,10 @@ export const NewClosetItemForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="placeOfPurchase">Place of Purchase: </label>
+
                     <input type="text" name="placeOfPurchase" className="form-control"
                         proptype="varchar"
+                        placeholder="Place of Purchase"
                         value={closetItem.placeOfPurchase}
                         onChange={handleControlledInputChange}>
                     </input>
@@ -181,9 +228,10 @@ export const NewClosetItemForm = (props) => {
                     evt.preventDefault()
                     constructNewClosetItem()
                 }}
-                className="btn btn-primary">
+                className="btn btn-primary saveNewItemButton">
                 {editMode ? "Save Updates" : "Save New Item"}
             </button>
         </form>
+        </>
     )
 }

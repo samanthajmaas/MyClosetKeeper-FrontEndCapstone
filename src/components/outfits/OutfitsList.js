@@ -3,6 +3,7 @@ import { OutfitsContext } from "./OutfitsProvider"
 import { MyClosetContext } from "../myCloset/MyClosetProvider"
 import { ClothingItemsOutfitsContext } from "./ClothingItemsOutfitsProvider"
 import { Outfit } from "./Outfit"
+import "./Outfit.css"
 
 
 export const OutfitsList = (props) => {
@@ -29,13 +30,14 @@ export const OutfitsList = (props) => {
 
     return (
         <>
-        <div className="outfits">
-                <h2>Outfits</h2>
-                <button onClick={() => {
+             <button className = "addOutfitButton"onClick={() => {
                     createNewOutfitObj()
                 }}>
                     +Outfit
                 </button>
+            <section className="outfits">
+                <h2 className="outfitsHeader">Outfits</h2>
+                
                 {
                     filteredOutfits.map(outfit => {
                         const relationships = clothingItemOutfits.filter(co => co.outfitId === outfit.id)
@@ -44,9 +46,9 @@ export const OutfitsList = (props) => {
                         })
 
                         return <Outfit key={outfit.id} outfit={outfit} closetItems={closetItems} findClothingItems={findClothingItems} {...props} />
-                    })
+                    }).reverse()
                 }
-            </div>
+            </section>
         </>
     )
 }

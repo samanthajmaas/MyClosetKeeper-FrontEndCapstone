@@ -1,21 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Lora:wght@500&display=swap");
 
-.login--header{
+#root{
+    display: flex;
+}
+
+.login--header{ 
+    position: absolute;
+    top: 7%;
+    left: 15px;
     font-family: 'Euphoria Script', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 64px;
-    line-height: 75px;
+    font-style: bold;
+    font-weight: 65px;
+    font-size: 68px;
+    line-height: 80px;
     color: #C6AD8F;
+    background:#EFE8DF;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
 }
 
 .login--signIn{
+    position: absolute;
+    right: 41%;
     width: 97px;
     height: 20px;
-    font-family: Lora;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
+    font-family: 'Lora', serif;
+    font-style: bold;
+    font-weight: 45px;
+    font-size: 40px;
     line-height: 46px;
     color: #425664;
 }
@@ -27,19 +39,31 @@ fieldset {
     border: 0;
 }
 
-.form--login {
-    position: relative;
+.bottom--login {
+    position: absolute;
+    left: 1.75%;
+    top: 36%;
     width: 400px;
-    height: 207px;
-    justify-content: center;
-    background: linear-gradient(180deg, #C6AD8F 0%, rgba(255, 255, 255, 255) 100%);
-    border-radius: 10px;
-    align-items: center;
+    height: 320px;
+    background: rgba(255, 255, 255, 0.67);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }
 
-.form--login > fieldset > input[type="email"],
+
+.form--login > fieldset > input[type="email"]{
+    width: 20em;
+    position: absolute;
+    left: 7%;
+    top: 27%;
+}
 .form--login > fieldset > input[type="password"] {
     width: 20em;
+    position: absolute;
+    left: 7%;
+    top: 45%;
 }
 
 .label--login {
@@ -49,7 +73,7 @@ fieldset {
 
 .form-control {
     display: block;
-    width: 94%;
+    width: 350px;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -70,20 +94,78 @@ fieldset {
     min-height: 5rem;
 }
 
-link{
-    position: relative;           
+.linkToRegiser{
+    position: absolute;
+    left: 100px;
+    top: 275px;
+    color: #425664;
+    font-family: 'Lora', serif;
+    font-size: 19px;
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 .submitButton{
-width: 76px;
-height: 32px;
-left: 150px;
-top: 525px;
-font-family: Lora;
-background: rgba(255, 255, 255, 0.78);
-border: 3px solid #C6AD8F;
-box-sizing: border-box;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 15px;
-justify-content: center;
+    position: absolute;
+    width: 76px;
+    height: 32px;
+    left: 160px;
+    top: 225px;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.78);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.register--Header{
+    position: absolute;
+    left: 43px;
+    top: 45px;
+    font-family: 'Lora', serif;
+    font-style: bold;
+    font-weight: 65px;
+    font-size: 25px;
+    line-height: 30px;
+    color: #C6AD8F;
+    background:#EFE8DF;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+}
+
+.signInAfterRegister{
+    position: absolute;
+    width: 76px;
+    height: 32px;
+    left: 160px;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.78);
+    border: 3px solid #C6AD8F;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.form--Register{
+    position: absolute;
+    left: 7px;
+    top: 150px;
+    width: 400px;
+    height: 450px;
+    background:#EFE8DF;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    align-items: center;
+}
+
+fieldset{
+   padding: 12px;
+}
+
+input{
+    color: #425664;
+    font-family: 'Lora', serif;
 }
