@@ -30,45 +30,49 @@ mkdir api and touch database.json to create the database
 
 ###### Sample API 
 You can copy + past the following sample data to have a better idea of the application OR you can start from scratch and try it out for yourself. 
+```
 <details>
 <summary>Click for Empty Data</summary>
 <br>
-```{
-  "users": [],
-  "closetItems": [],
-  "outfits": [],
-  "clothingItemsOutfits": [],
-  "categories": [
-    {
-      "id": 1,
-      "name": "top"
-    },
-    {
-      "id": 2,
-      "name": "bottom"
-    },
-    {
-      "id": 3,
-      "name": "one-piece"
-    },
-    {
-      "id": 4,
-      "name": "jacket"
-    },
-    {
-      "id": 5,
-      "name": "shoe"
-    },
-    {
-      "id": 6,
-      "name": "accessory"
-    }
-  ],
-  "suitcases": [],
-  "outfitsSuitcases": [],
-  "clothingItemsSuitcases": []
-}```
+
+            {
+            "users": [],
+            "closetItems": [],
+            "outfits": [],
+            "clothingItemsOutfits": [],
+            "categories": [
+              {
+                "id": 1,
+                "name": "top"
+              },
+              {
+                "id": 2,
+                "name": "bottom"
+              },
+              {
+                "id": 3,
+                "name": "one-piece"
+              },
+              {
+                "id": 4,
+                "name": "jacket"
+              },
+              {
+                "id": 5,
+                "name": "shoe"
+              },
+              {
+                "id": 6,
+                "name": "accessory"
+              }
+            ],
+            "suitcases": [],
+            "outfitsSuitcases": [],
+            "clothingItemsSuitcases": []
+          }
+
 </details>
+```
 
 <details>
 <summary>Click for Sample Data</summary>
