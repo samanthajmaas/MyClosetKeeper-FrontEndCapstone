@@ -33,7 +33,7 @@ You can copy + past the following sample data to have a better idea of the appli
 <details>
 <summary>Click for Empty Data</summary>
 <br>
-`{
+```{
   "users": [],
   "closetItems": [],
   "outfits": [],
@@ -67,13 +67,13 @@ You can copy + past the following sample data to have a better idea of the appli
   "suitcases": [],
   "outfitsSuitcases": [],
   "clothingItemsSuitcases": []
-}`
+}```
 </details>
 
 <details>
 <summary>Click for Sample Data</summary>
 <br>
-`{
+```{
   "users": [
     {
       "email": "sam@sam.com",
@@ -425,5 +425,5 @@ You can copy + past the following sample data to have a better idea of the appli
       "id": 4
     }
   ]
-}`
+}```
 </details>
