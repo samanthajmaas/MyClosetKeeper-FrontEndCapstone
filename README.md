@@ -1,8 +1,6 @@
 # Welcome to My Closet Keeper
 >keep your closet in your pocket
 
-![alt text](http://url/to/img.png)
-
 ###### The Inspiration
 
 I personally am guilty of having way too many clothes in my closet. It's hard to remember what pieces I already own when out shopping or what pieces I can put together as an outfit for a special event comming up. I needed a convient way to keep all of this information, and more, right on my phone! 
