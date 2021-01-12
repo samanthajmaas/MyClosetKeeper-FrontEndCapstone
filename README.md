@@ -12,7 +12,7 @@ They can then put pieces together to create outfits to be worn for special event
 A Suitcases feature for when planning for a trip (specically what to pack) where a user can 
 
 ###### Video Demo Link
-https://www.youtube.com/embed/P2TX5h_f8Gk
+https://www.youtube.com/watch?v=P2TX5h_f8Gk&t=20s
 
 ###### Setup 
 
