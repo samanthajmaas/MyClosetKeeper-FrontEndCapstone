@@ -11,8 +11,8 @@ A user can save individual pieces from their closet to pre-made categories to he
 They can then put pieces together to create outfits to be worn for special events/ everyday wear.
 A Suitcases feature for when planning for a trip (specically what to pack) where a user can 
 
-###### Video Demo
-<iframe width="560" height="315" src="https://www.youtube.com/embed/P2TX5h_f8Gk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+###### Video Demo Link
+https://www.youtube.com/embed/P2TX5h_f8Gk
 
 ###### Setup 
 
